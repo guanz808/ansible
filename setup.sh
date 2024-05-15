@@ -8,8 +8,8 @@ apt update -y
 apt install ansible -y
 ansible --version
 
-curl -o ansible.cfg https://raw.githubusercontent.com/guanz808/ansible/master/ansible.cfg -o /etc/ansible
-curl -o base.yml https://raw.githubusercontent.com/guanz808/ansible/master/base.yml -o /etc/ansible
-curl -o hosts https://raw.githubusercontent.com/guanz808/ansible/master/hosts -o /etc/ansible
+curl -o ansible.cfg https://github.com/guanz808/ansible/master/ansible.cfg -o /etc/ansible
+curl -o base.yml https://github.com/guanz808/ansible/master/base.yml -o /etc/ansible
+curl -o hosts https://github.com/guanz808/ansible/master/hosts -o /etc/ansible
 
 ansible-playbook /etc/ansible/base.yml
