@@ -1,8 +1,13 @@
 ---
 - hosts: all
   become: true
-
+  gather_facts: true
+  
   tasks:
+    - name: Get my user
+      ansible.builtin.set_fact:
+        remote_regular_user: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
+
     - name: Install aptitude
       apt:
         name: aptitude
@@ -17,6 +22,7 @@
           - git
           - wget
           - tree
+          - zsh
         state: latest
         update_cache: true
 
@@ -145,3 +151,7 @@
             dest: /usr/share/bash-completion/completions/kubectl
             mode: 0444
 
+    - name: Change shell to zsh
+      ansible.builtin.user:
+        name: "{{ remote_regular_user }}"
+        shell: /usr/bin/zsh
