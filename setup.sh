@@ -8,13 +8,12 @@ apt update -y
 apt install ansible -y
 ansible --version
 
-source_url="https://github.com/guanz808/ansible/master/"
-target_dir="/etc/ansible"
+cd /etc/ansible
+sudo curl -o ansible.cfg https://raw.githubusercontent.com/guanz808/ansible/master/ansible.cfg
+# Review ansible.cfg content
+sudo curl -o base.yml https://raw.githubusercontent.com/guanz808/ansible/master/base.yml
+# Review base.yml content
+sudo curl -o hosts https://raw.githubusercontent.com/guanz808/ansible/master/hosts
+# Review hosts content
 
-# Loop through filenames (adjust these as needed)
-files=(ansible.cfg base.yml hosts)
-
-for filename in "${files[@]}"; do
-  curl -o "$target_dir/$filename" "$source_url/$filename"
-done
 ansible-playbook /etc/ansible/base.yml
