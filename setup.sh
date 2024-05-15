@@ -8,7 +8,7 @@ apt update -y
 apt install ansible -y
 ansible --version
 
-source_url="https://raw.githubusercontent.com/guanz808/ansible/master/"
+source_url="https://github.com/guanz808/ansible/master/"
 target_dir="/etc/ansible"
 
 # Loop through filenames (adjust these as needed)
