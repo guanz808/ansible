@@ -155,3 +155,9 @@
       ansible.builtin.user:
         name: "{{ remote_regular_user }}"
         shell: /usr/bin/zsh
+
+    - name: Download file from GitHub
+      get_url:
+        url: https://github.com/guanz808/dotfiles/blob/main/.config/zsh/.zshrc
+        dest: ~/.zshrc
+        mode: '0644'   
