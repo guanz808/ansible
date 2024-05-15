@@ -1,6 +1,7 @@
 #!/bin/bash
 
 su
+cd ~
 apt update && apt upgrade -y
 apt -y install software-properties-common curl
 apt-add-repository ppa:ansible/ansible -y
