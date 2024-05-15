@@ -103,4 +103,45 @@
             update_cache: true
       become: true           
 
+    # see https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management
+    - name: Add the kubernetes apt repository key
+      ansible.builtin.apt_key:
+        # e.g. https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key
+        #url: https://pkgs.k8s.io/core:/stable:/v{{ (k8s_client_kubectl_version | split('.'))[:2] | join('.') }}/deb/Release.key
+        url: https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key
+        keyring: /etc/apt/keyrings/pkgs.k8s.io.gpg
+    
+    # see https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management
+    - name: Add the kubernetes repository
+      ansible.builtin.apt_repository:
+        # see https://wiki.debian.org/DebianRepository/Format
+        # see https://pkgs.k8s.io/core:/stable:/v1.29/deb/InRelease
+        # see https://pkgs.k8s.io/core:/stable:/v1.29/deb/Packages
+        # e.g. https://pkgs.k8s.io/core:/stable:/v1.29/deb/
+        repo: >
+          deb
+          [signed-by=/etc/apt/keyrings/pkgs.k8s.io.gpg]
+          https://pkgs.k8s.io/core:/stable:/v1.30/deb/
+          /
+    
+    # NB execute apt-cache madison kubectl to known the available versions.
+    - name: Install kubectl
+      block:
+        - name: Install kubectl
+          apt:
+            name: kubectl
+            state: latest
+            update_cache: true
+    
+    - name: Install kubectl bash completion
+      block:
+        - name: Get kubectl bash completion
+          ansible.builtin.command: kubectl completion bash
+          register: bash_completion
+          changed_when: false
+        - name: Install kubectl bash completion
+          ansible.builtin.copy:
+            content: "{{ bash_completion.stdout }}"
+            dest: /usr/share/bash-completion/completions/kubectl
+            mode: 0444
 
