@@ -2,7 +2,7 @@
 
 su
 apt update && apt upgrade -y
-apt -y install software-properties-common
+apt -y install software-properties-common curl
 apt-add-repository ppa:ansible/ansible -y
 apt update -y
 apt install ansible -y
