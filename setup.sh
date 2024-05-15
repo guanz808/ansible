@@ -15,6 +15,6 @@ target_dir="/etc/ansible"
 files=(ansible.cfg base.yml hosts)
 
 for filename in "${files[@]}"; do
-  sudo curl -o "$target_dir/$filename" "$source_url/$filename"
+  curl -o "$target_dir/$filename" "$source_url/$filename"
 done
 ansible-playbook /etc/ansible/base.yml
