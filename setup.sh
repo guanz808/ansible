@@ -1,13 +1,13 @@
 #!/bin/bash
 
-su
-cd ~
-apt update && apt upgrade -y
-apt -y install software-properties-common curl
-apt-add-repository ppa:ansible/ansible -y
-apt update -y
-apt install ansible -y
-ansible --version
+#su
+#cd ~
+#apt update && apt upgrade -y
+#apt -y install software-properties-common curl
+#apt-add-repository ppa:ansible/ansible -y
+#apt update -y
+#apt install ansible -y
+#ansible --version
 
 curl -o /etc/ansible/ansible.cfg https://raw.githubusercontent.com/guanz808/ansible/master/ansible.cfg
 curl -o /etc/ansible/base.yml https://raw.githubusercontent.com/guanz808/ansible/master/base.yml

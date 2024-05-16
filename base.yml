@@ -8,7 +8,7 @@
     become_method: sudo
   
   #become: true
-  become "{{ become }}"
+  become: "{{ become }}"
   become_user: "{{ become_user }}"
   gather_facts: true
 
