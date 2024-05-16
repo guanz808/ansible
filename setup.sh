@@ -30,8 +30,8 @@ if [ -f /etc/ansible/hosts ]; then
   echo "Deleted /etc/ansible/hosts"
 fi
 
-curl -o /etc/ansible/ansible.cfg https://raw.githubusercontent.com/guanz808/ansible/master/ansible.cfg
-curl -o /etc/ansible/base.yml https://raw.githubusercontent.com/guanz808/ansible/master/base.yml
-curl -o /etc/ansible/hosts https://raw.githubusercontent.com/guanz808/ansible/master/hosts
+curl -o /etc/ansible/ansible.cfg https://raw.githubusercontent.com/guanz808/ansible/main/ansible.cfg
+curl -o /etc/ansible/base.yml https://raw.githubusercontent.com/guanz808/ansible/main/base.yml
+curl -o /etc/ansible/hosts https://raw.githubusercontent.com/guanz808/ansible/main/hosts
 
 ansible-playbook /etc/ansible/base.yml
