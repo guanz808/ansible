@@ -17,17 +17,17 @@
 #      ansible.builtin.set_fact:
 #        remote_regular_user: "{{ ansible_user_id }}"
 
-    - name: Install aptitude
-      apt:
-        name: aptitude
-        state: latest
-        update_cache: true 
-
-    - name: Install updates (Ubuntu)
-      apt:
-        upgrade: dist
-        update_cache: true
-     # when: assible_distribution == "Ubuntu"
+#    - name: Install aptitude
+#      apt:
+#        name: aptitude
+#        state: latest
+#        update_cache: true 
+#
+#    - name: Install updates (Ubuntu)
+#      apt:
+#        upgrade: dist
+#        update_cache: true
+#     # when: assible_distribution == "Ubuntu"
 
     - name: Create a new regular user with sudo privileges
       user:
@@ -39,18 +39,18 @@
         create_home: true
         state: present
 
-    - name: Update apt and install required system packages
-      apt:
-        pkg:
-          - curl
-          - vim
-          - git
-          - wget
-          - tree
-          - neofetch
-          - zsh
-        state: latest
-        update_cache: true
+#    - name: Update apt and install required system packages
+#      apt:
+#        pkg:
+#          - curl
+#          - vim
+#          - git
+#          - wget
+#          - tree
+#          - neofetch
+#          - zsh
+#        state: latest
+#        update_cache: true
 
 #    - name: Remove package (if installed)
 #      apt:
@@ -65,6 +65,12 @@
           command: /usr/bin/neofetch --arguments
           become: true  # optional, depending on program requirements
     
+        - name: Create directory /home/jiadmin/.config/neofetch/
+           file:
+             path: /home/jiadmin/.config/neofetch/
+             state: directory
+             mode: 0755  
+
         - name: Download single file from GitHub
           get_url:
             url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.config/neofetch/config.conf
