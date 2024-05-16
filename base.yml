@@ -51,7 +51,6 @@
 #        state: absent  # Remove the package if present
 #        update_cache: true  # Update cache before checking for git 
 
-
     - name: Install and configure Neofetch
       block:
         - name: Run program neofetch
