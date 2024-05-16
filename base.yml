@@ -10,6 +10,12 @@
       ansible.builtin.set_fact:
         remote_regular_user: "{{ ansible_user_id }}"
 
+    - name: Install aptitude
+      apt:
+        name: aptitude
+        state: latest
+        update_cache: true 
+
     - name: Install updates (Ubuntu)
       apt:
         upgrade: dist
@@ -24,12 +30,6 @@
         append: true
         create_home: true
         state: present
-
-    - name: Install aptitude
-      apt:
-        name: aptitude
-        state: latest
-        update_cache: true    
 
     - name: Update apt and install required system packages
       apt:
