@@ -2,11 +2,22 @@
 - hosts: all
   become: true
   gather_facts: true
+  vars:
+    created_username: jiadmin
   
   tasks:
     - name: Get my user
       ansible.builtin.set_fact:
         remote_regular_user: "{{ ansible_user_id }}"
+
+    - name: Create a new regular user with sudo privileges
+      user:
+        name: "{{ created_username }}"
+        shell: /bin/bash
+        groups: sudo
+        append: true
+        create_home: true
+        state: present
 
     - name: Install aptitude
       apt:
