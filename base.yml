@@ -5,7 +5,7 @@
 
   vars:
     new_user: jiadmin
-    new_user_password: "temp_password"
+    new_user_password: "889a669f8711879aed110525c185ff3b"
     become: yes
     become_user: "{{ new_user }}"
     become_method: sudo
@@ -30,7 +30,7 @@
 #     # when: assible_distribution == "Ubuntu"
 
     - name: Create a new regular user with sudo privileges
-      user:
+      ansible.builtin.user:
         name: "{{ new_user }}"
         password: "{{ new_user_password }}"
         shell: /bin/bash
