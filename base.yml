@@ -66,10 +66,10 @@
           become: true  # optional, depending on program requirements
     
         - name: Create directory /home/jiadmin/.config/neofetch/
-           file:
-             path: /home/jiadmin/.config/neofetch/
-             state: directory
-             mode: 0755  
+          file:
+            path: /home/jiadmin/.config/neofetch/
+            state: directory
+            mode: 0755  
 
         - name: Download single file from GitHub
           get_url:
