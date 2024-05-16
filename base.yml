@@ -51,23 +51,6 @@
 #        state: absent  # Remove the package if present
 #        update_cache: true  # Update cache before checking for git 
 
-    - name: Download and run Azure CLI install script
-      block:
-        - name: Add the Azure CLI apt key
-          ansible.builtin.apt_key:
-            url: https://packages.microsoft.com/keys/microsoft.asc
-            keyring:  /etc/apt/keyrings/microsoft.gpg
-            #keyring:  /usr/share/keyrings/microsoft.gpg
-
-#        - name: Get distribution codename
-#          ansible.builtin.command:
-#            cmd: lsb_release -cs
-#          register: az_dist
-#        
-#        - name: Get architecture
-#          ansible.builtin.command:
-#            cmd: dpkg --print-architecture
-#          register: az_arch
 
     - name: Install and configure Neofetch
       block:
@@ -88,6 +71,24 @@
             insertafter: EOF  # Append the line after the last match (end of file)
             line: 'neofetch'  # Replace 'xxx' with the actual line you want to add
           #when: ansible_distribution == "Ubuntu"
+
+    - name: Download and run Azure CLI install script
+      block:
+        - name: Add the Azure CLI apt key
+          ansible.builtin.apt_key:
+            url: https://packages.microsoft.com/keys/microsoft.asc
+            keyring:  /etc/apt/keyrings/microsoft.gpg
+            #keyring:  /usr/share/keyrings/microsoft.gpg
+
+#        - name: Get distribution codename
+#          ansible.builtin.command:
+#            cmd: lsb_release -cs
+#          register: az_dist
+#        
+#        - name: Get architecture
+#          ansible.builtin.command:
+#            cmd: dpkg --print-architecture
+#          register: az_arch
 
         - name: Add Azure CLI repository
           ansible.builtin.apt_repository:
