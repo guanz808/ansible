@@ -1,14 +1,21 @@
 ---
 - hosts: all
-  become: true
-  gather_facts: true
   vars:
-    created_username: jiadmin
+    new_user: jiadmin
+    new_user_password: "temp_password"
+    become: yes
+    become_user: "{{ new_user }}"
+    become_method: sudo
   
+  #become: true
+  become "{{ become }}"
+  become_user: "{{ become_user }}"
+  gather_facts: true
+
   tasks:
-    - name: Get my user
-      ansible.builtin.set_fact:
-        remote_regular_user: "{{ ansible_user_id }}"
+#    - name: Get my user
+#      ansible.builtin.set_fact:
+#        remote_regular_user: "{{ ansible_user_id }}"
 
     - name: Install aptitude
       apt:
@@ -24,7 +31,8 @@
 
     - name: Create a new regular user with sudo privileges
       user:
-        name: "{{ created_username }}"
+        name: "{{ new_username }}"
+        password: "{{ new_user_password }}"
         shell: /bin/bash
         groups: sudo
         append: true
@@ -182,12 +190,12 @@
       get_url:
         url: https://github.com/guanz808/ansible/raw/main/.zshrc
         #dest: "{{ ansible_env.HOME }}/.zshrc"
-        dest: "{{ created_username }}/.zshrc"
+        dest: "{{ new_username }}/.zshrc"
         mode: '0440'   
 
     - name: Change shell to zsh
       ansible.builtin.user:
         #name: "{{ remote_regular_user }}"
-        name: "{{ created_username }}"
+        name: "{{ new_username }}"
         shell: /usr/bin/zsh
 
