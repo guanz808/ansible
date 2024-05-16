@@ -10,6 +10,12 @@
       ansible.builtin.set_fact:
         remote_regular_user: "{{ ansible_user_id }}"
 
+    - name: Install updates (Ubuntu)
+      apt:
+        upgrade: dist
+        update_cache: true
+     # when: assible_distribution == "Ubuntu"
+
     - name: Create a new regular user with sudo privileges
       user:
         name: "{{ created_username }}"
@@ -33,6 +39,7 @@
           - git
           - wget
           - tree
+          - neofetch
           - zsh
         state: latest
         update_cache: true
@@ -61,7 +68,27 @@
 #          ansible.builtin.command:
 #            cmd: dpkg --print-architecture
 #          register: az_arch
-        
+
+    - name: Install and configure Neofetch
+      block:
+        - name: Run program neofetch
+          command: /usr/bin/neofetch --arguments
+          become: true  # optional, depending on program requirements
+    
+        - name: Download single file from GitHub
+          get_url:
+            url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.config/neofetch/config.conf
+            dest: "/home/{{ created_username }}/.config/neofetch/config.conf"
+    
+        - name: Edit bashrc
+          become: true  # Retain this for clarity and consistency
+          lineinfile:
+            path: "/home/{{ created_username }}/.bashrc"
+            #regexp: '^$'  # Match an empty line (end of file)
+            insertafter: EOF  # Append the line after the last match (end of file)
+            line: 'neofetch'  # Replace 'xxx' with the actual line you want to add
+          #when: ansible_distribution == "Ubuntu"
+
         - name: Add Azure CLI repository
           ansible.builtin.apt_repository:
             #repo: "deb [arch={{ az_arch.stdout }} signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/azure-cli/ {{ az_dist.stdout }} main"
@@ -165,11 +192,13 @@
     - name: Download file from GitHub
       get_url:
         url: https://github.com/guanz808/ansible/raw/main/.zshrc
-        dest: "{{ ansible_env.HOME }}/.zshrc"
+        #dest: "{{ ansible_env.HOME }}/.zshrc"
+        dest: "{{ created_username }}/.zshrc"
         mode: '0440'   
 
     - name: Change shell to zsh
       ansible.builtin.user:
-        name: "{{ remote_regular_user }}"
+        #name: "{{ remote_regular_user }}"
+        name: "{{ created_username }}"
         shell: /usr/bin/zsh
 
