@@ -4,7 +4,7 @@
 ##############
 ##############
 
-source ~/.zshenv 
+#### source ~/.zshenv 
  
 #########################
 # Environment variables #
@@ -21,14 +21,14 @@ source ~/.zshenv
 # Options #
 ###########
 
-setopt HIST_IGNORE_ALL_DUPS  # History won't save duplicates
-setopt HIST_FIND_NO_DUPS  # History won't show duplicates on search
+####setopt HIST_IGNORE_ALL_DUPS  # History won't save duplicates
+####setopt HIST_FIND_NO_DUPS  # History won't show duplicates on search
 
 ###########
 # Aliases #
 ###########
  
-alias zrc="$EDITOR $ZSH/.zshrc"
+####alias zrc="$EDITOR $ZSH/.zshrc"
 alias ll='ls -lah'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'  # zsh colored files directories
