@@ -24,9 +24,9 @@
       apt:
         name:
           - python3-passlib
-          - locals          
+          - locales          
           - curl
-          - nvim
+          - neovim
           - unzip
           - git
           - wget
