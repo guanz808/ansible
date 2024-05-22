@@ -1,0 +1,4 @@
+---
+- name: Show vault variable value
+  debug:
+    var: new_user_password

@@ -1,0 +1,36 @@
+#- name: Download and install Starship
+#  get_url:
+#    url: https://starship.rs/install.sh
+#    dest: ~/starshipInstall.sh
+#    mode: '0755'
+#
+#- name: Run the install script
+#  command: ~/starshipInstall.sh -y
+
+- name: Check if Starship is installed
+  command: starship --version
+  register: starship_version
+  failed_when: false
+  changed_when: false
+
+- name: Download install.sh from starship.rs
+  get_url:
+    url: https://starship.rs/install.sh
+    dest: ~/starshipInstall.sh
+    mode: '0755'
+  when: starship_version.rc != 0
+
+- name: Run the install script
+  command: ~/starshipInstall.sh -y
+  when: starship_version.rc != 0
+
+- name: Create directory /home/{{ new_user }}/.config/starship/
+  ansible.builtin.file:
+    path: "/home/{{ new_user }}/.config/starship/"
+    state: directory
+    mode: 0755  
+
+- name: Download .zsh configuration file from GitHub
+  get_url:
+    url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.config/starship/starship.toml
+    dest: "/home/{{ new_user }}/.config/starship/starship.toml" 

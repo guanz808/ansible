@@ -1,0 +1,23 @@
+- name: Add the HashiCorp Repository and Install Terraform
+  block:
+    - name: Add the hashicorp apt key
+      ansible.builtin.apt_key:
+        url: https://apt.releases.hashicorp.com/gpg
+        keyring:  /usr/share/keyrings/hashicorp-archive-keyring.gpg 
+    
+    # see https://www.vagrantup.com/downloads
+    - name: Add the hashicorp repository
+      ansible.builtin.apt_repository:
+        repo: >
+          deb
+          [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg]
+          https://apt.releases.hashicorp.com
+          {{ ansible_distribution_release }}
+          main
+
+    - name: Install Terraform
+      apt:
+        name: terraform
+        state: latest
+        update_cache: true      
+  become: true 

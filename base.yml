@@ -1,0 +1,63 @@
+---
+- hosts: all
+  become: true
+  gather_facts: true
+  vars_files:
+    #- /home/jiadmin/ansible/group_vars/vault.yml  # path to the vault file
+    - ~/ansible/group_vars/vault.yml  # path to the vault file
+
+  vars:
+    new_user: jiadmin
+    new_user_password: new_user_password
+
+  roles:
+    - custom-roles
+
+  tasks:
+#    - name: Install aptitude
+#      apt:
+#        name: aptitude
+#        state: latest
+#        update_cache: true 
+
+    - name: Update apt and install required system packages
+      apt:
+        name:
+          - python3-passlib
+          - locals          
+          - curl
+          - nvim
+          - unzip
+          - git
+          - wget
+          - tree
+          - zsh
+        state: latest
+        update_cache: true
+      when: ansible_distribution in ["Debian", "Ubuntu"]  
+
+#    - name: Create a new regular user with sudo privileges
+#      ansible.builtin.user:
+#        name: "{{ new_user }}"
+#        password: "{{ new_user_password | password_hash }}"
+#        shell: /bin/bash
+#        groups: sudo
+#        append: true
+#        create_home: true
+#        state: present
+
+    #- include_tasks: roles/custom-roles/tasks/main.yml  # test 
+    #- include_tasks: roles/custom-roles/tasks/neofetch.yml  # test        
+    - name: Include multiple tasks
+      include_tasks: "{{ item }}"
+      loop:
+#        - roles/custom-roles/tasks/main.yml
+        - roles/custom-roles/tasks/fonts.yml
+        - roles/custom-roles/tasks/zsh.yml
+        - roles/custom-roles/tasks/starship.yml
+        - roles/custom-roles/tasks/neofetch.yml
+        - roles/custom-roles/tasks/azure_cli.yml
+        - roles/custom-roles/tasks/terraform.yml
+        - roles/custom-roles/tasks/github_cli.yml
+        - roles/custom-roles/tasks/kubectl.yml
+        
