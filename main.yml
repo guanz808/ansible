@@ -3,15 +3,16 @@
   become: true
   gather_facts: true
   vars_files:
-    #- /home/jiadmin/ansible/group_vars/vault.yml  # path to the vault file
-    - ~/ansible/group_vars/vault.yml  # path to the vault file
+    - /home/jiadmin/ansible/group_vars/vault.yml  # path to the vault file
+    #- ~/ansible/group_vars/vault.yml  # path to the vault file
 
   vars:
-    new_user: jiadmin
-    new_user_password: new_user_password
+  #  new_user: joe
+  #  new_user_password: new_user_password # moved to all.yml
 
   roles:
     - custom-roles
+    - system
 
   tasks:
 #    - name: Install aptitude
