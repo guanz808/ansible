@@ -5,7 +5,3 @@
   #debug:
   #  msg: "Current user is: {{ host_user }}"
   when: host_user is not defined 
-
-- name: Show Current User value (debug)
-  debug:
-    msg: "Current user is: {{ ansible_env['USER'] }}"   
