@@ -14,6 +14,12 @@
   #  - custom-roles
   #  - system
 
+  pre_tasks:
+    - name:  Detect Host User
+      ansible.builtin.import_tasks: pre_tasks/whoami.yml
+      tags:
+        always
+
   tasks:
 #    - name: Install aptitude
 #      apt:
@@ -40,7 +46,7 @@
     - name: Include multiple tasks
       include_tasks: "{{ item }}"
       loop:
-        - roles/custom-roles/tasks/main.yml
+        - roles/system/tasks/main.yml
         - roles/custom-roles/tasks/create_user.yml  
         - roles/custom-roles/tasks/fonts.yml
         - roles/custom-roles/tasks/zsh.yml
