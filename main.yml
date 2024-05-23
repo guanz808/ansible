@@ -14,11 +14,11 @@
   #  - custom-roles
   #  - system
 
-  pre_tasks:
-    - name:  Detect Host User
-      ansible.builtin.import_tasks: pre_tasks/whoami.yml
-      tags:
-        always
+  #pre_tasks:
+  #  - name:  Detect Host User
+  #    ansible.builtin.import_tasks: pre_tasks/whoami.yml
+  #    tags:
+  #      always
 
   tasks:
 #    - name: Install aptitude
