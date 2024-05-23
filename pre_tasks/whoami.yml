@@ -2,6 +2,4 @@
 - name: Register and Show Current User
   ansible.builtin.set_fact:
     host_user: "{{ ansible_env['USER'] }}"
-  #debug:
-  #  msg: "Current user is: {{ host_user }}"
   when: host_user is not defined 
