@@ -2,6 +2,7 @@ default_roles:
   - system
   - fonts
   - neofetch
+  - starship
   - azure_cli
   - github_cli
   - kubectl
