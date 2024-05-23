@@ -35,7 +35,6 @@
           - curl
           - neovim
           - unzip
-          - git
           - wget
           - tree
           - zsh
