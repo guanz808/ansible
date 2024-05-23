@@ -1,5 +1,5 @@
 default_roles:
   - system
 
-new_user: joe
+new_user: jiadmin
 new_user_password: new_user_password
