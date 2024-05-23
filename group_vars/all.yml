@@ -14,3 +14,6 @@ default_roles:
 
 new_user: jiadmin
 new_user_password: new_user_password
+
+git_user_email: git_user_email
+git_user_name: git_user_name

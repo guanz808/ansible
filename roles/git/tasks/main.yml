@@ -39,19 +39,19 @@
 #    scope: global
 #    value: true
 #
-#- name: "Git | Set user.email"
-#  community.general.git_config:
-#    name: user.email
-#    scope: global
-#    value: "{{ git_user_email }}"
-#  no_log: true
-#
-#- name: "Git | Set user.name"
-#  community.general.git_config:
-#    name: user.name
-#    scope: global
-#    value: "{{ git_user_name }}"
-#
+- name: "Git | Set user.email"
+  community.general.git_config:
+    name: user.email
+    scope: global
+    value: "{{ git_user_email }}"
+  no_log: true
+
+- name: "Git | Set user.name"
+  community.general.git_config:
+    name: user.name
+    scope: global
+    value: "{{ git_user_name }}"
+
 #- name: "Git | Set user.signingkey"
 #  community.general.git_config:
 #    name: user.signingkey
