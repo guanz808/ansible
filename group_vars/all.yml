@@ -1,5 +1,6 @@
 default_roles:
   - system
+  - azure_cli
 
 new_user: jiadmin
 new_user_password: new_user_password
