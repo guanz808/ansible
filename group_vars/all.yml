@@ -1,5 +1,6 @@
 default_roles:
   - system
+  - create_user
   - zsh
   - fonts
   - neofetch
@@ -7,7 +8,8 @@ default_roles:
   - azure_cli
   - github_cli
   - kubectl
-  #- create_user
+  - terraform
+  
 
 new_user: jiadmin
 new_user_password: new_user_password
