@@ -41,6 +41,6 @@ sudo apt-get update -y
 sudo apt install -y ansible
 
 sudo locale-gen "en_US.UTF-8"
-
+passwd root
 cd ~/ansible
 ansible-playbook main.yml
