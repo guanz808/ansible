@@ -1,15 +1,5 @@
 #!/bin/bash
 
-sudo apt -y install \
-- software-properties-common \
-- git \
-- curl \
-- sudo \
-- adduser \
-- vim 
-
-#!/bin/bash
-
 sudo apt update && apt upgrade -y
 
 # Check if we're in a container
