@@ -1,0 +1,9 @@
+- name: Create a new regular user with sudo privileges
+  ansible.builtin.user:
+    name: "{{ new_user }}"
+    password: "{{ new_user_password | password_hash }}"
+    shell: /bin/bash
+    groups: sudo
+    append: true
+    create_home: true
+    state: present

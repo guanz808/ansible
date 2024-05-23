@@ -6,13 +6,13 @@
     - /home/jiadmin/ansible/group_vars/vault.yml  # path to the vault file
     #- ~/ansible/group_vars/vault.yml  # path to the vault file
 
-  vars:
+  #vars:  # moved to all.yml
   #  new_user: joe
   #  new_user_password: new_user_password # moved to all.yml
 
-  roles:
-    - custom-roles
-    - system
+  #roles:  # moved to all.yml
+  #  - custom-roles
+  #  - system
 
   tasks:
 #    - name: Install aptitude
@@ -36,23 +36,12 @@
         state: latest
         update_cache: true
       when: ansible_distribution in ["Debian", "Ubuntu"]  
-
-#    - name: Create a new regular user with sudo privileges
-#      ansible.builtin.user:
-#        name: "{{ new_user }}"
-#        password: "{{ new_user_password | password_hash }}"
-#        shell: /bin/bash
-#        groups: sudo
-#        append: true
-#        create_home: true
-#        state: present
-
-    #- include_tasks: roles/custom-roles/tasks/main.yml  # test 
-    #- include_tasks: roles/custom-roles/tasks/neofetch.yml  # test        
+       
     - name: Include multiple tasks
       include_tasks: "{{ item }}"
       loop:
-#        - roles/custom-roles/tasks/main.yml
+        - roles/custom-roles/tasks/main.yml
+        - roles/custom-roles/tasks/create_user.yml  
         - roles/custom-roles/tasks/fonts.yml
         - roles/custom-roles/tasks/zsh.yml
         - roles/custom-roles/tasks/starship.yml
