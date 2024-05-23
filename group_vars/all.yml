@@ -2,7 +2,8 @@ default_roles:
   - system
   - fonts
   - azure_cli
-  - create_user
+  - github_cli
+  #- create_user
 
 new_user: jiadmin
 new_user_password: new_user_password
