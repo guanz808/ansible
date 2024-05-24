@@ -22,7 +22,7 @@
         dest: "/home/{{ ansible_env['USER'] }}/.config/neofetch/config.conf"
 
     - name: Edit bashrc
-      become: true  # Retain this for clarity and consistency
+      #become: true  # Retain this for clarity and consistency
       lineinfile:
         path: "/home/{{ ansible_env['USER'] }}/.bashrc"
         #regexp: '^$'  # Match an empty line (end of file)
