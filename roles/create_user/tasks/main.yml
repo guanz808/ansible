@@ -1,3 +1,12 @@
+---
+- name: Update apt and install required system packages
+  apt:
+    name:
+      - python3-passlib
+    state: latest
+    update_cache: true
+  when: ansible_distribution in ["Debian", "Ubuntu"]  
+
 - name: Create a new regular user with sudo privileges
   ansible.builtin.user:
     name: "{{ new_user }}"

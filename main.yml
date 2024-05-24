@@ -27,20 +27,16 @@
 #        state: latest
 #        update_cache: true 
 
-#    - name: Update apt and install required system packages
-#      apt:
-#        name:
-#          - python3-passlib
-#          - locales          
-#          - curl
-#          - neovim
-#          - unzip
-#          - wget
-#          - tree
-#          - zsh
-#        state: latest
-#        update_cache: true
-#      when: ansible_distribution in ["Debian", "Ubuntu"]  
+    - name: Update apt and install required system packages
+      apt:
+        name:  
+          - curl
+          - unzip
+          - wget
+          - tree
+        state: latest
+        update_cache: true
+      when: ansible_distribution in ["Debian", "Ubuntu"]  
        
 #    - name: Include multiple tasks
 #      include_tasks: "{{ item }}"
