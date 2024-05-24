@@ -46,20 +46,6 @@
         owner: "{{ host_user }}"
         group: "{{ host_user }}"
 
-#    - name: Include multiple tasks
-#      include_tasks: "{{ item }}"
-#      loop:
-#        - roles/system/tasks/main.yml
-#        - roles/custom-roles/tasks/create_user.yml  
-#        - roles/custom-roles/tasks/fonts.yml
-#        - roles/custom-roles/tasks/zsh.yml
-#        - roles/custom-roles/tasks/starship.yml
-#        - roles/custom-roles/tasks/neofetch.yml
-#        - roles/custom-roles/tasks/azure_cli.yml
-#        - roles/custom-roles/tasks/terraform.yml
-#        - roles/custom-roles/tasks/github_cli.yml
-#        - roles/custom-roles/tasks/kubectl.yml
-
     - name: Set roles
       ansible.builtin.set_fact:
         run_roles: "{{ ansible_run_tags != ['all'] and ansible_run_tags or default_roles | difference(exclude_roles | default([])) }}"
