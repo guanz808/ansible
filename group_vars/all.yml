@@ -1,6 +1,6 @@
 default_roles:
   - system
-  - create_user
+  #- create_user
   - zsh
   - git
   - fonts
@@ -12,8 +12,8 @@ default_roles:
   - terraform
   
 
-new_user: jiadmin
-new_user_password: new_user_password
+#new_user: jiadmin
+#new_user_password: new_user_password
 
 git_user_email: git_user_email
 git_user_name: git_user_name
