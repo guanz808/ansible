@@ -1,3 +1,12 @@
+---
+- name: Update apt and install required system packages
+  apt:
+    name:
+      - wget
+    state: latest
+    update_cache: true
+  when: ansible_distribution in ["Debian", "Ubuntu"]  
+
 - name: Download and install Starship
   get_url:
     url: https://starship.rs/install.sh
