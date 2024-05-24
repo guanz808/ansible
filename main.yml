@@ -37,7 +37,15 @@
         state: latest
         update_cache: true
       when: ansible_distribution in ["Debian", "Ubuntu"]  
-       
+
+    - name: Restrist access to the .vault_key file "~/ansible/.vault_key"
+      file:
+        path: ~/ansible/.vault_key
+        state: file
+        mode: 0600
+        owner: "{{ host_user }}"
+        group: "{{ host_user }}"
+
 #    - name: Include multiple tasks
 #      include_tasks: "{{ item }}"
 #      loop:
