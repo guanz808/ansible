@@ -7,9 +7,9 @@ default_roles:
   - neofetch
   - starship
   - azure_cli
-  #- github_cli
-  #- kubectl
-  #- terraform
+  - github_cli
+  - kubectl
+  - terraform
   
 #new_user: jiadmin
 #new_user_password: new_user_password
