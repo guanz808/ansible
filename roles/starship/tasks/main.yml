@@ -24,13 +24,13 @@
   command: ~/starshipInstall.sh -y
   when: starship_version.rc != 0
 
-- name: Create directory /home/{{ new_user }}/.config/starship/
+- name: Create directory /home/{{ ansible_env['USER'] }}/.config/starship/
   ansible.builtin.file:
-    path: "/home/{{ new_user }}/.config/starship/"
+    path: "/home/{{ ansible_env['USER'] }}/.config/starship/"
     state: directory
     mode: 0755  
 
 - name: Download .zsh configuration file from GitHub
   get_url:
     url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.config/starship/starship.toml
-    dest: "/home/{{ new_user }}/.config/starship/starship.toml" 
+    dest: "/home/{{ ansible_env['USER'] }}/.config/starship/starship.toml" 
