@@ -3,7 +3,7 @@ default_roles:
   #- create_user
   - zsh
   #- git
-  #- fonts
+  - fonts
   - neofetch
   #- starship
   #- azure_cli
