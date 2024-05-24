@@ -1,12 +1,12 @@
     - name: Ensure fonts directory
       ansible.builtin.file:
-        path: "/home/{{ new_user }}/.local/share/fonts"
+        path: "/home/{{ user }}/.local/share/fonts"
         state: directory
         mode: "0755"
-        owner: "{{ new_user }}"
+        owner: "{{ user }}"
 
     - name: Check if Cascadia Mono Nerd Font exists
-      ansible.builtin.shell: "ls /home/{{ new_user }}/.local/share/fonts/CaskaydiaMonoNerdFont*"
+      ansible.builtin.shell: "ls /home/{{ user }}/.local/share/fonts/CaskaydiaMonoNerdFont*"
       register: CascadiaMono_exists
       ignore_errors: true
       changed_when: false
@@ -15,7 +15,7 @@
       when: CascadiaMono_exists is failed
       ansible.builtin.unarchive:
         src: "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/CascadiaMono.zip"
-        dest: "/home/{{ new_user }}/.local/share/fonts"
+        dest: "/home/{{ user }}/.local/share/fonts"
         remote_src: yes
         mode: "0755"
-        owner: "{{ new_user }}"
+        owner: "{{ user }}"
