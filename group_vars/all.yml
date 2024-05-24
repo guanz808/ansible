@@ -1,10 +1,10 @@
 default_roles:
   - system
   #- create_user
-  - zsh
+  #- zsh
   #- git
-  - fonts
-  - neofetch
+  #- fonts
+  #- neofetch
   - starship
   #- azure_cli
   #- github_cli
