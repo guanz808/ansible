@@ -11,7 +11,7 @@ default_roles:
   - kubectl
   - terraform
   
-
+host_user: host_user
 #new_user: jiadmin
 #new_user_password: new_user_password
 
