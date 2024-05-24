@@ -24,6 +24,10 @@ else
     vim
 fi
 
+passwd root
+adduser jiadmin
+usermod -aG sudo jiadmin
+su jiadmin
 
 
 sudo apt-add-repository -y ppa:ansible/ansible -y
@@ -31,6 +35,6 @@ sudo apt-get update -y
 sudo apt install -y ansible
 
 sudo locale-gen "en_US.UTF-8"
-passwd root
+
 cd ~/ansible
-ansible-playbook main.yml
+ansible-playbook main.yml --become
