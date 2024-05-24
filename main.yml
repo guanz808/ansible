@@ -38,9 +38,9 @@
         update_cache: true
       when: ansible_distribution in ["Debian", "Ubuntu"]  
 
-    - name: Restrist access to the .vault_key file "~/ansible/.vault_key"
+    - name: Restrist access to the .vault_key file "/home/{{ host_user }}/ansible/.vault_key"
       file:
-        path: ~/ansible/.vault_key
+        path: /home/{{ host_user }}/ansible/.vault_key
         state: file
         mode: 0600
         owner: "{{ host_user }}"
