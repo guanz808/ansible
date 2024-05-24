@@ -4,9 +4,9 @@ default_roles:
   - zsh
   - git
   - fonts
-  #- neofetch
-  #- starship
-  #- azure_cli
+  - neofetch
+  - starship
+  - azure_cli
   #- github_cli
   #- kubectl
   #- terraform
