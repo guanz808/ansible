@@ -4,4 +4,6 @@ cd ~
 git clone https://github.com/guanz808/ansible.git
 cd ~/ansible
 
-setup.sh
+chmod + ./setup.sh
+# if running in a container run
+bash ./setup.sh
