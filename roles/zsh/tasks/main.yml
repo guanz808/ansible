@@ -8,7 +8,7 @@
     
     - name: Delete .zshrc file if it exists
       file:
-        path: "/home/{{ user }}/.zshrc"
+        path: "/home/jiadmin/.zshrc"
         state: absent
 
     - name: Create directory /home/{{ user }}/.config/zsh/
