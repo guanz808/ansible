@@ -11,3 +11,8 @@
 - name: Set host_user variable from whoami output
   set_fact:
     host_user: "{{ whoami_result.stdout.strip() }}"
+
+- name: Print the value of host_user
+  debug:
+    msg: "The current user on the target machine is {{ host_user }}"
+  when: host_user is defined    
