@@ -6,14 +6,6 @@
         state: latest
         update_cache: yes
     
-#    - name: Download .zshrc file from GitHub
-#      get_url:
-#        url: https://github.com/guanz808/ansible/raw/main/.zshrc
-#        #dest: "{{ ansible_env.HOME }}/.zshrc"
-#        dest: "/home/{{ user }}/.zshrc"
-#        mode: '0440'   
-
-###############################################################
     - name: Delete .zshrc file if it exists
       file:
         path: "/home/{{ user }}/.zshrc"
