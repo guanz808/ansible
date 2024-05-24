@@ -34,3 +34,10 @@ cd ~/ansible
 chmod + ./setup.sh
 # if running in a container run
 sudo bash ./setup.sh
+
+# add the key to the .vault_key file
+echo "key" > ~/ansible/.vault_key
+cat ~/ansible/.vault_key
+
+# run ansible-playbook
+ansible-playbook main.yml --become

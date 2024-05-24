@@ -1,11 +1,11 @@
-#- name: Download and install Starship
-#  get_url:
-#    url: https://starship.rs/install.sh
-#    dest: ~/starshipInstall.sh
-#    mode: '0755'
-#
-#- name: Run the install script
-#  command: ~/starshipInstall.sh -y
+- name: Download and install Starship
+  get_url:
+    url: https://starship.rs/install.sh
+    dest: ~/starshipInstall.sh
+    mode: '0755'
+
+- name: Run the install script
+  command: ~/starshipInstall.sh -y
 
 - name: Check if Starship is installed
   command: starship --version
