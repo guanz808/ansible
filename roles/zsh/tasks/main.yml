@@ -8,64 +8,64 @@
     
     - name: Delete .zshrc file if it exists
       file:
-        path: "/home/{{ ansible_env['USER'] }}/.zshrc"
+        path: "/home/{{ host_user }}/.zshrc"
         state: absent
 
-    - name: Create directory /home/{{ ansible_env['USER'] }}/.config/zsh/
+    - name: Create directory /home/{{ host_user }}/.config/zsh/
       ansible.builtin.file:
-        path: "/home/{{ ansible_env['USER'] }}/.config/zsh/"
+        path: "/home/{{ host_user }}/.config/zsh/"
         state: directory
         mode: 0755  
 
     - name: Download .zsh configuration file from GitHub
       get_url:
         url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.config/zsh/.zshrc
-        dest: "/home/{{ ansible_env['USER'] }}/.config/zsh/.zshrc"
+        dest: "/home/{{ host_user }}/.config/zsh/.zshrc"
 
     - name: Download zsh history file from GitHub
       get_url:
         url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.config/zsh/.zsh_history
-        dest: "/home/{{ ansible_env['USER'] }}/.config/zsh/.zshrc_history"
+        dest: "/home/{{ host_user }}/.config/zsh/.zshrc_history"
 
     - name: Download zsh zcompdump file from GitHub
       get_url:
         url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.config/zsh/.zcompdump
-        dest: "/home/{{ ansible_env['USER'] }}/.config/zsh/.zcompdump"
+        dest: "/home/{{ host_user }}/.config/zsh/.zcompdump"
 
-    - name: Create directory /home/{{ ansible_env['USER'] }}/.config/zsh/plugins/
+    - name: Create directory /home/{{ host_user }}/.config/zsh/plugins/
       ansible.builtin.file:
-        path: "/home/{{ ansible_env['USER'] }}/.config/zsh/plugins/"
+        path: "/home/{{ host_user }}/.config/zsh/plugins/"
         state: directory
         mode: 0755  
 
     - name: Install ZSH syntax highlighting and autosuggestions
       get_url:
         url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.config/zsh/.zshrc
-        dest: "/home/{{ ansible_env['USER'] }}/.config/zsh/.zshrc"
+        dest: "/home/{{ host_user }}/.config/zsh/.zshrc"
 
     - name: Install ZSH syntax highlighting
       git:
         repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
-        dest: "/home/{{ ansible_env['USER'] }}}/.config/zsh/plugins/zsh-syntax-highlighting"
+        dest: "/home/{{ host_user }}}/.config/zsh/plugins/zsh-syntax-highlighting"
 
     - name: Install ZSH autosuggestions
       git:
         repo: https://github.com/zsh-users/zsh-autosuggestions.git
-        dest: "/home/{{ ansible_env['USER'] }}/.config/zsh/plugins/zsh-autosuggestions"
+        dest: "/home/{{ host_user }}/.config/zsh/plugins/zsh-autosuggestions"
 
     - name: download the zsh-history-substring-search plugin to a custom plugin directory and install
       git:
         repo: https://github.com/zsh-users/zsh-history-substring-search
-        dest: "/home/{{ ansible_env['USER'] }}/.config/zsh/plugins/zsh-history-substring-search"   
+        dest: "/home/{{ host_user }}/.config/zsh/plugins/zsh-history-substring-search"   
 
     - name: Download .zshenv file from GitHub
       get_url:
         url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.zshenv
-        dest: "/home/{{ ansible_env['USER'] }}/.zshenv"
+        dest: "/home/{{ host_user }}/.zshenv"
 
     - name: Change shell to zsh
       ansible.builtin.user:
         #name: "{{ remote_regular_user }}"
-        name: "/home/{{ ansible_env['USER'] }}"
+        name: "/home/{{ host_user }}"
         shell: /usr/bin/zsh
   become: true      
