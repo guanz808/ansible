@@ -1,16 +1,16 @@
 ---
-#- name: Register and Show Current User
-#  ansible.builtin.set_fact:
-#    host_user: "{{ ansible_env['USER'] }}"
-#  when: host_user is not defined 
+- name: Register and Show Current User
+  ansible.builtin.set_fact:
+    host_user: "{{ ansible_env['USER'] }}"
+  when: host_user is not defined 
 
-- name: Get current user with whoami
-  command: whoami
-  register: whoami_result
-
-- name: Set host_user variable from whoami output
-  set_fact:
-    host_user: "{{ whoami_result.stdout.strip() }}"
+#- name: Get current user with whoami
+#  command: whoami
+#  register: whoami_result
+#
+#- name: Set host_user variable from whoami output
+#  set_fact:
+#    host_user: "{{ whoami_result.stdout.strip() }}"
 
 - name: Print the value of host_user
   debug:
