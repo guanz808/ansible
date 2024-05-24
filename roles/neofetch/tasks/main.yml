@@ -1,6 +1,7 @@
 - name: Install and configure Neofetch
   block:
     - name: Install neofetch
+      become: true
       apt:
         name: neofetch
         state: latest
@@ -16,6 +17,7 @@
         path: "/home/{{ host_user }}/.config/neofetch/"
         state: directory
         mode: 0755  
+   
     - name: Download single file from GitHub
       get_url:
         url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.config/neofetch/config.conf
