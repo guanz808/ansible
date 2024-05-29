@@ -1,12 +1,23 @@
 #!/bin/bash
 
-sudo apt-add-repository -y ppa:ansible/ansible -y
-sudo apt-get update -y
-sudo apt install -y ansible
-
-sudo locale-gen "en_US.UTF-8"
-
+# Clone the Ansible repository
+cd ~
+git clone https://github.com/guanz808/ansible.git
 cd ~/ansible
-echo "Add the key to the .vault_key file"
 
-#ansible-playbook main.yml --become
+# Make the setup script executable
+chmod +x ./setup.sh
+
+# Run the setup script (use sudo if in a container)
+if [ -f /.dockerenv ]; then
+  sudo bash ./setup.sh
+else
+  bash ./setup.sh
+fi
+
+# Add the key to the vault_key file (replace "key" with your actual key)
+echo "key" > ~/ansible/.vault_key
+cat ~/ansible/.vault_key
+
+# Run the Ansible playbook
+ansible-playbook main.yml --become
