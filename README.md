@@ -22,10 +22,10 @@ else
     vim
 fi
 
-echo "creating user jiadmin account"
-adduser jiadmin
-usermod -aG sudo jiadmin
-su jiadmin
+echo "creating user <userName> account"
+adduser <userName>
+usermod -aG sudo <userName>
+su <userName>
 
 cd ~
 git clone https://github.com/guanz808/ansible.git
