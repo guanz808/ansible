@@ -3,7 +3,6 @@
   become: true
   gather_facts: true
   vars_files:
-    #- /home/jiadmin/ansible/group_vars/vault.yml  # path to the vault file
     - ~/ansible/group_vars/vault.yml  # path to the vault file
 
   #vars:  # moved to all.yml
