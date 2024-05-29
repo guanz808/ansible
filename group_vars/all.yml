@@ -11,7 +11,7 @@ default_roles:
   - kubectl
   - terraform
   
-#new_user: jiadmin
+#new_user: <userName>
 #new_user_password: new_user_password
 
 git_user_email: git_user_email

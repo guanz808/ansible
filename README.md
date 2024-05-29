@@ -41,3 +41,9 @@ cat ~/ansible/.vault_key
 
 # run ansible-playbook
 ansible-playbook main.yml --become
+
+# Notes:
+Add <userName> to vault
+
+# References
+https://github.com/techdufus/dotfiles
