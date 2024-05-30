@@ -14,6 +14,7 @@ else
   echo "Directory ~/ansible already exists."
   pwd
   cd ~/ansible
+  ll
   git reset --hard origin/main
   # You can add logic here to handle existing content (e.g., prompt user)
 fi
