@@ -46,6 +46,7 @@ clear
 # Check if user already exists using id command (more efficient)
 if id "$username" >/dev/null 2>&1; then
   echo "User '$username' already exists."
+  su - "$username"
   exit 1  # Indicate failure with non-zero exit code
 else
   echo "Creating user account for '$username'"
@@ -53,5 +54,5 @@ else
   usermod -aG sudo "$username"     # Add to sudo group
 
   # Grant immediate access to the new account (if needed)
-  su - "$username"  # Uncomment for immediate login (security risk)
+  su - "$username"
 fi
