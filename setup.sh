@@ -13,7 +13,7 @@ else
   # Directory exists, handle existing content (optional)
   echo "Directory ~/ansible already exists."
   cd ~/ansible
-  git reset --hard origin/https://github.com/guanz808/ansible.git
+  git reset --hard origin/main
   # You can add logic here to handle existing content (e.g., prompt user)
 fi
 
