@@ -8,8 +8,9 @@ if [ ! -d ~/ansible ]; then
   echo "Directory ~/ansible not found. Running specific command..."
   cd ~
   git clone https://github.com/guanz808/ansible.git
-  cd ~/ansible
 fi
+
+cd ~/ansible
 
 # Add the key to the vault_key file (replace "key" with your actual key)
 echo "$key" > ~/ansible/.vault_key
