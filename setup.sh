@@ -4,15 +4,19 @@
 read -p "Enter the vault key: " key
 
 if [ ! -d ~/ansible ]; then
-  # Command to run if the directory doesn't exist
-  echo "Directory ~/ansible not found. Running specific command..."
+  # Directory doesn't exist, clone the repository
+  echo "Directory ~/ansible not found. Cloning the repository..."
   cd ~
   git clone https://github.com/guanz808/ansible.git
+else
+  # Directory exists, handle existing content (optional)
+  echo "Directory ~/ansible already exists."
+  # You can add logic here to handle existing content (e.g., prompt user)
 fi
 
 cd ~/ansible
 
-# Add the key to the vault_key file (replace "key" with your actual key)
+# Add the key to the vault_key file
 echo "$key" > ~/ansible/.vault_key
 cat ~/ansible/.vault_key
 
