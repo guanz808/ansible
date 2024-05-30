@@ -12,6 +12,7 @@ if [ ! -d ~/ansible ]; then
 else
   # Directory exists, handle existing content (optional)
   echo "Directory ~/ansible already exists."
+  pwd
   cd ~/ansible
   git reset --hard origin/main
   # You can add logic here to handle existing content (e.g., prompt user)
