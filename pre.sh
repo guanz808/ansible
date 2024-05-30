@@ -27,7 +27,8 @@ if [ -f /.dockerenv ]; then
     adduser \
     sudo \
     locales
-
+  
+  clear
   echo "Changing root password (enter twice)"
   passwd root
   sudo locale-gen "en_US.UTF-8"
@@ -54,11 +55,8 @@ if id "$username" >/dev/null 2>&1; then
   exit 1  # Indicate failure with non-zero exit code
 else
   echo "Creating user account for '$username'"
-  adduser --disabled "$username"  # Create disabled account for security
+  adduser "$username"  
   usermod -aG sudo "$username"     # Add to sudo group
-
-  # Optionally, set a password for the new user (consider security implications)
-  passwd "$username"
 
   # Grant immediate access to the new account (if needed)
   su - "$username"  # Uncomment for immediate login (security risk)
