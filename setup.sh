@@ -8,13 +8,14 @@ if [ ! -d ~/ansible ]; then
   echo "Directory ~/ansible not found. Cloning the repository..."
   cd ~
   git clone https://github.com/guanz808/ansible.git
+  cd ~/ansible
 else
   # Directory exists, handle existing content (optional)
   echo "Directory ~/ansible already exists."
+  cd ~/ansible
+  git reset --hard origin/https://github.com/guanz808/ansible.git
   # You can add logic here to handle existing content (e.g., prompt user)
 fi
-
-cd ~/ansible
 
 # Add the key to the vault_key file
 echo "$key" > ~/ansible/.vault_key
