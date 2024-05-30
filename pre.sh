@@ -41,13 +41,7 @@ else
     vim
 fi
 
-#### Create user account
-###echo "Creating user $username account"
-###adduser "$username"
-###usermod -aG sudo "$username"
-###
-#### Switch to the new user
-###su "$username"
+clear
 
 # Check if user already exists using id command (more efficient)
 if id "$username" >/dev/null 2>&1; then
