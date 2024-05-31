@@ -1,8 +1,17 @@
 #!/bin/bash
 
-if [ -f ~/ansible/.vault_key_tmp ]; then
-  mv ~/ansible/.vault_key_tmp ~/ansible/.vault_key
-  echo "Renamed ~/ansible/.vault_key_tmp to ~/.vault_key"
+# Check if the main vault key file exists
+if [ ! -f ~/ansible/.vault_key ]; then
+  # Check if the temporary key file exists
+  if [ -f ~/ansible/.vault_key_tmp ]; then
+    echo "Renaming temporary vault key to main key..."
+    # Move the temporary file to the main key location
+    mv ~/ansible/.vault_key_tmp ~/ansible/.vault_key
+  else
+    echo "No vault key found."
+  fi
+else
+  echo "Main vault key already exists."
 fi
 
 # Prompt for Key
