@@ -26,6 +26,7 @@ if [ ! -f ~/ansible/.vault_key ]; then
     echo "Renaming temporary vault key to main key..."
     # Move the temporary file to the main key location
     cp ~/ansible/.vault_key_tmp ~/ansible/.vault_key
+    # Prompt for Key
     read -p "Enter the vault key: " key
   else
     echo "No vault key found."
@@ -34,30 +35,16 @@ else
   echo "Main vault key already exists."
 fi
 
-# Prompt for Key
-#read -p "Enter the vault key: " key
-
 if [[ $(stat -c %s ~/ansible/.vault_key) -gt 0 ]]; then
   echo "~/ansible/.vault_key has content."
 else
   echo "~/ansible/.vault_key is empty or doesn't exist."
+  # Add the key to the vault_key file
   echo "$key" > ~/ansible/.vault_key
 fi
 
 echo "getting key vault value"
 cat ~/ansible/.vault_key
 
-# Add the key to the vault_key file
-#echo "$key" > ~/ansible/.vault_key
-
-echo "Run ansible playbook"
+echo "Running ansible playbook"
 ansible-playbook main.yml --become
-
-# Run the setup script (use sudo if in a container)
-#if [ -f /.dockerenv ]; then
-#  # Run the Ansible playbook
-#  sudo ansible-playbook main.yml --become
-#else
-#  # Run the Ansible playbook
-#  ansible-playbook main.yml --become
-#fi
