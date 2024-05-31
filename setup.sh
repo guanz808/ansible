@@ -21,14 +21,8 @@ else
   git reset --hard origin/main
 fi
 
-if [ -n "$key" ]; then
-  echo "Variable 'key' has a value: '$key'"
-  # Add your commands to run if the variable has a value here
-  echo "$key" > ~/ansible/.vault_key
-fi
-
 # Add the key to the vault_key file
-#echo "$key" > ~/ansible/.vault_key
+echo "$key" > ~/ansible/.vault_key
 
 ansible-playbook main.yml --become
 
