@@ -54,9 +54,9 @@ else
 fi
 
 if [[ $(stat -c %s ~/ansible/.vault_key) -gt 0 ]]; then
-  echo "${green}The ansible vault [~/ansible/.vault_key] has content. $(tput sgr0)"
+  echo "${green}The ansible vault [~/ansible/.vault_key] key is present. $(tput sgr0)"
 else
-  echo "${green}The ansible vault [~/ansible/.vault_key] is empty or doesn't exist. $(tput sgr0)"
+  echo "${green}The ansible vault [~/ansible/.vault_key] doesn't contain the key. $(tput sgr0)"
   # Add the key to the vault_key file
   #echo "$key" > ~/ansible/.vault_key
 
