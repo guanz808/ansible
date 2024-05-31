@@ -28,7 +28,7 @@ fi
 if [ ! -f ~/ansible/.vault_key ]; then
   # Check if the temporary key file exists
   if [ -f ~/ansible/.vault_key_tmp ]; then
-    echo "${green}Renaming temporary vault key to main key... $(tput sgr0)"
+    echo "${green}Renaming temporary .vault_key_tmp to .vault_key $(tput sgr0)"
     # Move the temporary file to the main key location
     cp ~/ansible/.vault_key_tmp ~/ansible/.vault_key
     # Prompt for Key
