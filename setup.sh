@@ -21,6 +21,8 @@ else
   git reset --hard origin/main
 fi
 
+clear
+
 if [[ $(stat -c %s ~/ansible/.vault_key) -gt 0 ]]; then
   echo "~/ansible/.vault_key has content."
 else
