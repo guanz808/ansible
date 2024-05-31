@@ -9,7 +9,10 @@ curl -o pre.sh https://raw.githubusercontent.com/guanz808/ansible/main/pre.sh &&
 # run setup.sh
 rm -f setup.sh
 curl -o setup.sh https://raw.githubusercontent.com/guanz808/ansible/main/setup.sh && chmod +x setup.sh && ./setup.sh
-curl -o setup.sh https://raw.githubusercontent.com/guanz808/ansible/main/setup.sh
+
+git clone https://github.com/guanz808/ansible.git
+git pull
+
 
 # Notes:
 Add <userName> to vault
