@@ -48,23 +48,23 @@ else
   # Add the key to the vault_key file
   #echo "$key" > ~/ansible/.vault_key
 
-  echo "Please enter your password:"
-  read -s PASSWORD
+  echo "${green}Please enter the vault key $(tput sgr0)"
+  read -s KEY
   echo
-  echo "Please enter your password again for confirmation:"
-  read -s PASSWORD_CONFIRM
+  echo "${green}Please enter the vault key again for confirmation: $(tput sgr0)"
+  read -s KEY_CONFIRM
   echo
   
-    if [ "$PASSWORD" == "$PASSWORD_CONFIRM" ]; then
-        echo "$PASSWORD" > ~/ansible/.vault_key
+    if [ "$KEY" == "$KEY_CONFIRM" ]; then
+        echo "$KEY" > ~/ansible/.vault_key
     else
-        echo "Passwords do not match."
+        echo "${green}The vault key do not match. $(tput sgr0)"
     fi
   
   fi
 
-echo "${green}Getting key vault value $(tput sgr0)"
-cat ~/ansible/.vault_key
+#echo "${green}Getting key vault value $(tput sgr0)"
+#cat ~/ansible/.vault_key
 
 echo "${green}Running ansible playbook $(tput sgr0)"
 #ansible-playbook main.yml --become
