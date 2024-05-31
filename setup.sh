@@ -54,7 +54,7 @@ else
   echo "${green}Main vault key already exists. $(tput sgr0)"
 fi
 
-if [[ $(stat -c %s ~/ansible/.vault_key) -gt 0 ]]; then
+if [[ $(stat -c %s ~/ansible/.vault_key) -gt 1 ]]; then
   echo "${green}The ansible vault [~/ansible/.vault_key] key is present. $(tput sgr0)"
 else
   echo "${green}The ansible vault [~/ansible/.vault_key] doesn't contain the key. $(tput sgr0)"
