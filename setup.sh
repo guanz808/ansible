@@ -7,7 +7,7 @@ if [ ! -f ~/ansible/.vault_key ]; then
     echo "Renaming temporary vault key to main key..."
     # Move the temporary file to the main key location
     mv ~/ansible/.vault_key_tmp ~/ansible/.vault_key
-    ls -la
+    read -p "Enter the vault key: " key
   else
     echo "No vault key found."
   fi
@@ -16,7 +16,7 @@ else
 fi
 
 # Prompt for Key
-read -p "Enter the vault key: " key
+#read -p "Enter the vault key: " key
 
 sudo apt-add-repository ppa:ansible/ansible -y
 sudo apt update -y
