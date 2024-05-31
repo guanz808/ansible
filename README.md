@@ -1,6 +1,6 @@
 # Run Updates
 apt-get update && apt-get install -y  
-apt install curl wget git -y  
+apt install curl git -y  
 
 # run pre.sh
 cd ~  
