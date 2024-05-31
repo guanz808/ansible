@@ -53,4 +53,4 @@ echo "${green}Getting key vault value $(tput sgr0)"
 cat ~/ansible/.vault_key
 
 echo "${green}Running ansible playbook $(tput sgr0)"
-###########ansible-playbook main.yml --become
+#ansible-playbook main.yml --become
