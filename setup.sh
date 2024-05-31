@@ -43,6 +43,8 @@ else
   echo "$key" > ~/ansible/.vault_key
 fi
 
+cat ~/ansible/.vault_key
+
 # Add the key to the vault_key file
 #echo "$key" > ~/ansible/.vault_key
 
