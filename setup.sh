@@ -73,4 +73,4 @@ else
 #cat ~/ansible/.vault_key
 cd ~/ansible
 echo "${green}Running ansible playbook $(tput sgr0)"
-ansible-playbook emain.yml --become
+ansible-playbook main.yml --become
