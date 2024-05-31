@@ -22,7 +22,6 @@ else
   cd ~/ansible
   #git reset --hard origin/main
   git pull
-  #git fetch --all
 fi
 
 # Check if the .vault_key file exists
