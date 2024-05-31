@@ -23,10 +23,8 @@ else
 fi
 
 if [[ $(stat -c %s ~/ansible/.vault_key) -gt 0 ]]; then
-  clear
   echo "~/ansible/.vault_key has content."
 else
-  clear
   echo "~/ansible/.vault_key is empty or doesn't exist."
 fi
 
