@@ -1,19 +1,7 @@
 #!/bin/bash
 
-# Specify the file to check (consider using a variable)
-vault_key_file="~/ansible/.vault_key"
-
-# Check if the vault key file exists
-if [[ -f "$vault_key_file" ]]; then
-  # Check if the file has content
-  if [[ -s "$vault_key_file" ]]; then
-    echo "File '$vault_key_file' has content. Using existing vault key..."
-  else
-    echo "File '$vault_key_file' is empty. Enter the vault key: "
-    read -p "" key  # Read key without echoing the character
-  fi
 # Prompt for Key
-#read -p "Enter the vault key: " key
+read -p "Enter the vault key: " key
 
 sudo apt-add-repository ppa:ansible/ansible -y
 sudo apt update -y
