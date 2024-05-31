@@ -11,6 +11,7 @@ rm -f setup.sh
 curl -o setup.sh https://raw.githubusercontent.com/guanz808/ansible/main/setup.sh && chmod +x setup.sh && ./setup.sh
 
 git clone https://github.com/guanz808/ansible.git
+cd ~/ansible
 git pull
 
 
