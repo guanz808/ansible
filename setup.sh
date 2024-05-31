@@ -32,7 +32,7 @@ if [ ! -f ~/ansible/.vault_key ]; then
     # Move the temporary file to the main key location
     cp ~/ansible/.vault_key_tmp ~/ansible/.vault_key
     # Prompt for Key
-    echo "${green}enter vault key $(tput sgr0)"
+    echo "${green}Enter vault key $(tput sgr0)"
     read -p "Enter the vault key: " key
   else
     echo "${green}No vault key found. $(tput sgr0)"
