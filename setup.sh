@@ -63,4 +63,4 @@ ansible-playbook main.yml --become
 #fi
 cd ~
 rm pre.sh
-rm setup.sh
+#rm setup.sh
