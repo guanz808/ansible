@@ -18,7 +18,8 @@ else
   # Directory exists, handle existing content (optional)
   echo "Directory ~/ansible already exists."
   cd ~/ansible
-  git reset --hard origin/main
+  #git reset --hard origin/main
+  git pull
 fi
 
 if [[ $(stat -c %s ~/ansible/.vault_key) -gt 0 ]]; then
