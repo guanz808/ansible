@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # colors
-green="\033[0;32m"
+green=`tput setaf 2`
 
 # install ansible
 sudo apt-add-repository ppa:ansible/ansible -y
@@ -51,5 +51,5 @@ fi
 echo "getting key vault value$"
 cat ~/ansible/.vault_key
 
-echo -e "${green}Running ansible playbook"
+echo "${green}Running ansible playbook $(tput sgr0)"
 #ansible-playbook main.yml --become
