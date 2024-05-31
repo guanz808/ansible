@@ -50,6 +50,7 @@ cat ~/ansible/.vault_key
 # Add the key to the vault_key file
 #echo "$key" > ~/ansible/.vault_key
 
+echo "Run ansible playbook"
 ansible-playbook main.yml --become
 
 # Run the setup script (use sudo if in a container)
