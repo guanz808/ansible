@@ -6,13 +6,13 @@ ansible --version
 
 if [ ! -d ~/ansible ]; then
   # Directory doesn't exist, clone the repository
-  echo "Directory ~/ansible not found. Cloning the repository..."
+  echo "${GREEN}Directory ~/ansible not found. Cloning the repository...${RESET}"
   cd ~
   git clone https://github.com/guanz808/ansible.git
   cd ~/ansible
 else
   # Directory exists, handle existing content (optional)
-  echo "Directory ~/ansible already exists."
+  echo "${GREEN}Directory ~/ansible already exists.${RESET}"
   cd ~/ansible
   #git reset --hard origin/main
   git pull
@@ -43,8 +43,8 @@ else
   echo "$key" > ~/ansible/.vault_key
 fi
 
-echo "getting key vault value"
+echo "${GREEN}getting key vault value${RESET}"
 cat ~/ansible/.vault_key
 
-echo "Running ansible playbook"
+echo "Running ansible playbook${RESET}"
 ansible-playbook main.yml --become
