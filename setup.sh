@@ -7,6 +7,7 @@ if [ ! -f ~/ansible/.vault_key ]; then
     echo "Renaming temporary vault key to main key..."
     # Move the temporary file to the main key location
     mv ~/ansible/.vault_key_tmp ~/ansible/.vault_key
+    ls -la
   else
     echo "No vault key found."
   fi
