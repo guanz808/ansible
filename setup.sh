@@ -32,11 +32,23 @@ if [ ! -f ~/ansible/.vault_key ]; then
     # Move the temporary file to the main key location
     cp ~/ansible/.vault_key_tmp ~/ansible/.vault_key
     # Prompt for Key
-    echo "${green}Enter vault key $(tput sgr0)"
-    read -p "Enter the vault key: " key
-  else
-    echo "${green}No vault key found. $(tput sgr0)"
-  fi
+    #echo "${green}Enter vault key $(tput sgr0)"
+    #read -p "Enter the vault key: " key
+    echo "${green}Please enter the vault key $(tput sgr0)"
+    read -s KEY
+    echo
+    echo "${green}Please enter the vault key again for confirmation: $(tput sgr0)"
+    read -s KEY_CONFIRM
+    echo
+    
+      if [ "$KEY" == "$KEY_CONFIRM" ]; then
+          echo "$KEY" > ~/ansible/.vault_key
+      else
+          echo "${green}The vault key do not match. $(tput sgr0)"
+      fi
+    else
+      echo "${green}No vault key found. $(tput sgr0)"
+    fi
 else
   echo "${green}Main vault key already exists. $(tput sgr0)"
 fi
