@@ -34,3 +34,6 @@ ansible-playbook main.yml --become
 #  # Run the Ansible playbook
 #  ansible-playbook main.yml --become
 #fi
+
+rm pre.sh
+rm setup.sh
