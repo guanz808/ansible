@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # colors
+red=`tput setaf 1`
 green=`tput setaf 2`
 
 # install ansible
@@ -70,7 +71,7 @@ else
     if [ "$KEY" == "$KEY_CONFIRM" ]; then
         echo "$KEY" > ~/ansible/.vault_key
     else
-        echo "${green}The vault key do not match. $(tput sgr0)"
+        echo "${red}The vault key do not match. $(tput sgr0)"
     fi
   
   fi
