@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# colors
+green="\033[0;32m"
+
 # install ansible
 sudo apt-add-repository ppa:ansible/ansible -y
 sudo apt update -y
@@ -48,5 +51,5 @@ fi
 echo "getting key vault value$"
 cat ~/ansible/.vault_key
 
-echo "Running ansible playbook"
+echo -e "${green}Running ansible playbook"
 #ansible-playbook main.yml --become
