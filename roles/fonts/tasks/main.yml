@@ -15,7 +15,7 @@
     owner: "{{ host_user }}"
 
 - name: Check if Cascadia Mono Nerd Font exists
-  ansible.builtin.shell: "ls /home/{{ host_user }}/.local/share/fonts/CaskaydiaMonoNerdFont*"
+  ansible.builtin.shell: "ls /home/{{ host_user }}/.local/share/fonts/CaskaydiaMonoNerdFont-Regular.ttf"
   register: CascadiaMono_exists
   ignore_errors: true
   changed_when: false
