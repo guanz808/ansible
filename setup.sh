@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ -f ~/ansible/.vault_key_tmp ]; then
+  mv ~/ansible/.vault_key_tmp ~/ansible/.vault_key
+  echo "Renamed ~/ansible/.vault_key_tmp to ~/.vault_key"
+fi
+
 # Prompt for Key
 read -p "Enter the vault key: " key
 
