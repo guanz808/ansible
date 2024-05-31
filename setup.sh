@@ -10,6 +10,15 @@ CYAN='\033[0;36m'
 WHITE='\033[0;37m'
 RESET='\033[0m'  # Reset color to default
 
+# Print each color with a label
+echo "${RED}This is Red${RESET}"
+echo "${GREEN}This is Green${RESET}"
+echo "${YELLOW}This is Yellow${RESET}"
+echo "${BLUE}This is Blue${RESET}"
+echo "${MAGENTA}This is Magenta${RESET}"
+echo "${CYAN}This is Cyan${RESET}"
+echo "${WHITE}This is White${RESET}"
+
 # install ansible
 sudo apt-add-repository ppa:ansible/ansible -y
 sudo apt update -y
