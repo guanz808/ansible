@@ -47,4 +47,4 @@ echo "${GREEN}getting key vault value${RESET}"
 cat ~/ansible/.vault_key
 
 echo "${GREEN}Running ansible playbook${RESET}"
-ansible-playbook main.yml --become
+#ansible-playbook main.yml --become
