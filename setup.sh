@@ -1,24 +1,5 @@
 #!/bin/bash
 
-# Define color codes as variables
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[0;33m'
-BLUE='\033[0;34m'
-MAGENTA='\033[0;35m'
-CYAN='\033[0;36m'
-WHITE='\033[0;37m'
-RESET='\033[0m'  # Reset color to default
-
-# Print each color with a label
-echo "${RED}This is Red${RESET}"
-echo "${GREEN}This is Green${RESET}"
-echo "${YELLOW}This is Yellow${RESET}"
-echo "${BLUE}This is Blue${RESET}"
-echo "${MAGENTA}This is Magenta${RESET}"
-echo "${CYAN}This is Cyan${RESET}"
-echo "${WHITE}This is White${RESET}"
-
 # install ansible
 sudo apt-add-repository ppa:ansible/ansible -y
 sudo apt update -y
@@ -27,13 +8,13 @@ ansible --version
 
 if [ ! -d ~/ansible ]; then
   # Directory doesn't exist, clone the repository
-  echo "${GREEN}Directory ~/ansible not found. Cloning the repository...${RESET}"
+  echo "Directory ~/ansible not found. Cloning the repository..."
   cd ~
   git clone https://github.com/guanz808/ansible.git
   cd ~/ansible
 else
   # Directory exists, handle existing content (optional)
-  echo "${GREEN}Directory ~/ansible already exists.${RESET}"
+  echo "Directory ~/ansible already exists."
   cd ~/ansible
   #git reset --hard origin/main
   git pull
@@ -64,8 +45,8 @@ else
   echo "$key" > ~/ansible/.vault_key
 fi
 
-echo "${GREEN}getting key vault value${RESET}"
+echo "getting key vault value$"
 cat ~/ansible/.vault_key
 
-echo "${GREEN}Running ansible playbook${RESET}"
+echo "Running ansible playbook"
 #ansible-playbook main.yml --become
