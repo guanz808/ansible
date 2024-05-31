@@ -10,6 +10,7 @@ sudo apt update -y
 sudo apt install ansible -y
 ansible --version
 
+# Check if the ansible repository is present, if not clone the repo locally
 if [ ! -d ~/ansible ]; then
   # Directory doesn't exist, clone the repository
   echo "${green}Directory ~/ansible not found. Cloning the repository... $(tput sgr0)"
@@ -17,7 +18,7 @@ if [ ! -d ~/ansible ]; then
   git clone https://github.com/guanz808/ansible.git
   cd ~/ansible
 else
-  # Directory exists, handle existing content (optional)
+  # Directory exists, and update the repo
   echo "${green}Directory ~/ansible already exists. $(tput sgr0)"
   cd ~/ansible
   #git reset --hard origin/main
