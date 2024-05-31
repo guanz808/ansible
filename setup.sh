@@ -46,8 +46,22 @@ if [[ $(stat -c %s ~/ansible/.vault_key) -gt 0 ]]; then
 else
   echo "${green}The ansible vault [~/ansible/.vault_key] is empty or doesn't exist. $(tput sgr0)"
   # Add the key to the vault_key file
-  echo "$key" > ~/ansible/.vault_key
-fi
+  #echo "$key" > ~/ansible/.vault_key
+
+  echo "Please enter your password:"
+  read -s PASSWORD
+  echo
+  echo "Please enter your password again for confirmation:"
+  read -s PASSWORD_CONFIRM
+  echo
+  
+    if [ "$PASSWORD" == "$PASSWORD_CONFIRM" ]; then
+        echo "$PASSWORD" > ~/ansible/.vault_key
+    else
+        echo "Passwords do not match."
+    fi
+  
+  fi
 
 echo "${green}Getting key vault value $(tput sgr0)"
 cat ~/ansible/.vault_key
