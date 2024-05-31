@@ -40,7 +40,7 @@ if [[ $(stat -c %s ~/ansible/.vault_key) -gt 0 ]]; then
   echo "~/ansible/.vault_key has content."
 else
   echo "~/ansible/.vault_key is empty or doesn't exist."
-  #echo "$key" > ~/ansible/.vault_key
+  echo "$key" > ~/ansible/.vault_key
 fi
 
 # Add the key to the vault_key file
