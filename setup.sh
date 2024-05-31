@@ -71,6 +71,6 @@ else
 
 #echo "${green}Getting key vault value $(tput sgr0)"
 #cat ~/ansible/.vault_key
-cd $HOME/ansible
+cd ~/ansible
 echo "${green}Running ansible playbook $(tput sgr0)"
 ansible-playbook emain.yml --become
