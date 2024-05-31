@@ -1,9 +1,9 @@
 # Run Updates
-apt-get update && apt-get install -y
-apt install curl wget git -y
+apt-get update && apt-get install -y  
+apt install curl wget git -y  
 
 # run pre.sh
-cd ~
+cd ~  
 curl -o pre.sh https://raw.githubusercontent.com/guanz808/ansible/main/pre.sh && chmod +x pre.sh && ./pre.sh
 
 # run setup.sh
