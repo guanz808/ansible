@@ -25,23 +25,20 @@ else
   #git fetch --all
 fi
 
-# Check if the main vault key file exists
+# Check if the .vault_key file exists
 if [ ! -f ~/ansible/.vault_key ]; then
   # Check if the temporary key file exists
   if [ -f ~/ansible/.vault_key_tmp ]; then
     echo "${green}Renaming temporary .vault_key_tmp to .vault_key $(tput sgr0)"
-    # Move the temporary file to the main key location
+    # Make a copy of the .vault_key_tmp and rename it to .vault_key
     cp ~/ansible/.vault_key_tmp ~/ansible/.vault_key
     # Prompt for Key
-    #echo "${green}Enter vault key $(tput sgr0)"
-    #read -p "Enter the vault key: " key
     echo "${green}Please enter the vault key $(tput sgr0)"
     read -s KEY
     echo
     echo "${green}Please enter the vault key again for confirmation: $(tput sgr0)"
     read -s KEY_CONFIRM
     echo
-    
       if [ "$KEY" == "$KEY_CONFIRM" ]; then
           echo "$KEY" > ~/ansible/.vault_key
       else
@@ -54,26 +51,22 @@ else
   echo "${green}Main vault key already exists. $(tput sgr0)"
 fi
 
+# Check the .vault_key file if it contains the key, if not prompt for the key.
 if [[ $(stat -c %s ~/ansible/.vault_key) -gt 1 ]]; then
   echo "${green}The ansible vault [~/ansible/.vault_key] key is present. $(tput sgr0)"
 else
   echo "${green}The ansible vault [~/ansible/.vault_key] doesn't contain the key. $(tput sgr0)"
-  # Add the key to the vault_key file
-  #echo "$key" > ~/ansible/.vault_key
-
   echo "${green}Please enter the vault key $(tput sgr0)"
   read -s KEY
   echo
   echo "${green}Please enter the vault key again for confirmation: $(tput sgr0)"
   read -s KEY_CONFIRM
   echo
-  
     if [ "$KEY" == "$KEY_CONFIRM" ]; then
         echo "$KEY" > ~/ansible/.vault_key
     else
         echo "${red}The vault key do not match. $(tput sgr0)"
     fi
-  
   fi
 
 #echo "${green}Getting key vault value $(tput sgr0)"
