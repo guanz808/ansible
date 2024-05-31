@@ -7,12 +7,14 @@ cd ~
 curl -o pre.sh https://raw.githubusercontent.com/guanz808/ansible/main/pre.sh && chmod +x pre.sh && ./pre.sh
 
 # run setup.sh
-rm -f setup.sh
-curl -o setup.sh https://raw.githubusercontent.com/guanz808/ansible/main/setup.sh && chmod +x setup.sh && ./setup.sh
+#rm -f setup.sh
+#curl -o setup.sh https://raw.githubusercontent.com/guanz808/ansible/main/setup.sh && chmod +x setup.sh && ./setup.sh
 
 git clone https://github.com/guanz808/ansible.git
 cd ~/ansible
 git pull
+
+chmod +x setup.sh && ./setup.sh
 
 
 # Notes:
