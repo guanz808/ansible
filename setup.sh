@@ -1,21 +1,17 @@
 #!/bin/bash
 
-# Specify the file to check
-file_path="~/ansible/.vault_key"  # Replace with your actual file path
+# Specify the file to check (consider using a variable)
+vault_key_file="~/ansible/.vault_key"
 
-# Check if the file exists and is not empty
-if [[ -f "$file_path" && -s "$file_path" ]]; then
-  # The file exists and has content
-  echo "File '$file_path' has content. Running task for non-empty files..."
-  # Add your commands for non-empty files here (e.g., processing the content)
-  #<your_command_for_non_empty_files>
-else
-  # The file either doesn't exist or is empty
-  echo "File '$file_path' is empty or doesn't exist. Running task for empty files..."
-  # Add your commands for empty files here
-  read -p "Enter the vault key: " key
-fi
-
+# Check if the vault key file exists
+if [[ -f "$vault_key_file" ]]; then
+  # Check if the file has content
+  if [[ -s "$vault_key_file" ]]; then
+    echo "File '$vault_key_file' has content. Using existing vault key..."
+  else
+    echo "File '$vault_key_file' is empty. Enter the vault key: "
+    read -p "" key  # Read key without echoing the character
+  fi
 # Prompt for Key
 #read -p "Enter the vault key: " key
 
