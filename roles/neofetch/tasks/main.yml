@@ -12,24 +12,24 @@
       command: /usr/bin/neofetch --arguments
       become: true  # optional, depending on program requirements
 
-    - name: Create directory /home/{{ host_user }}/.config/neofetch/
+    - name: Create directory | /home/{{ host_user }}/.config/neofetch/ |
       ansible.builtin.file:
         path: "/home/{{ host_user }}/.config/neofetch/"
         state: directory
         mode: 0755  
    
-#    - name: Download single file from GitHub
+#    - name: Download single file from GitHub"
 #      get_url:
 #        url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.config/neofetch/config.conf
 #        dest: "/home/{{ host_user }}/.config/neofetch/config.conf"
 
-    - name: "Neofetch | {{ host_user }} | Copy config file"
+    - name: Copy config file | {{ host_user }}/.config/neofetch/config | 
       ansible.builtin.copy:
         src: config
         dest: "{{ host_user }}/.config/neofetch/config"
         mode: "0644"
 
-    - name: Edit bashrc
+    - name: Edit bashrc"
       #become: true  # Retain this for clarity and consistency
       lineinfile:
         path: "/home/{{ host_user }}/.bashrc"
