@@ -15,6 +15,8 @@
       ansible.builtin.file:
         path: "/home/{{ host_user }}/.config/zsh/"
         state: directory
+        owner: "{{ host_user }}"
+        group: "{{ host_user }}"
         mode: 0755  
 
     - name: Download .zsh configuration file from GitHub
@@ -36,6 +38,8 @@
       ansible.builtin.file:
         path: "/home/{{ host_user }}/.config/zsh/plugins/"
         state: directory
+        owner: "{{ host_user }}"
+        group: "{{ host_user }}"
         mode: 0755  
 
     - name: Install ZSH syntax highlighting and autosuggestions

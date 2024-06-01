@@ -37,6 +37,8 @@
   ansible.builtin.file:
     path: "/home/{{ host_user }}/.config/starship/"
     state: directory
+    owner: "{{ host_user }}"
+    group: "{{ host_user }}"
     mode: 0755  
 
 - name: Download .zsh configuration file from GitHub
