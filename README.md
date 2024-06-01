@@ -24,6 +24,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/guanz808/ansible/main/se
 
 # Notes:
 Add <userName> to vault
+nefetch config.conf file not working
 
 # References
 https://github.com/techdufus/dotfiles
