@@ -23,10 +23,10 @@
 #        url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.config/neofetch/config.conf
 #        dest: "/home/{{ host_user }}/.config/neofetch/config.conf"
 
-    - name: "Neofetch | {{ ansible_user_dir }} | Copy config file"
+    - name: "Neofetch | {{ host_user }} | Copy config file"
       ansible.builtin.copy:
         src: config
-        dest: "{{ ansible_user_dir }}/.config/neofetch/config"
+        dest: "{{ host_user }}/.config/neofetch/config"
         mode: "0644"
 
     - name: Edit bashrc
