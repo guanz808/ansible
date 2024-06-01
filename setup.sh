@@ -72,4 +72,4 @@ else
 cd ~/ansible
 
 echo "${green}Running ansible playbook $(tput sgr0)"
-#ansible-playbook main.yml --become
+ansible-playbook main.yml --become
