@@ -29,6 +29,8 @@
       ansible.builtin.copy:
         src: config
         dest: "/home/{{ host_user }}/.config/neofetch/config"
+        owner: "{{ host_user }}"
+        group: "{{ host_user }}"
         mode: "0644"
 
     - name: Edit bashrc"
