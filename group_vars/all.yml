@@ -10,9 +10,11 @@ default_roles:
   - github_cli
   - kubectl
   - terraform
-  
+
+# Role [create use] - valuses stored in vault.yml 
 #new_user: <userName>
 #new_user_password: new_user_password
 
+# Role [git] - valuses stored in vault.yml
 git_user_email: git_user_email
 git_user_name: git_user_name
