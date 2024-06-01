@@ -151,5 +151,6 @@ else
 fi
 
 # Run Ansible playbook
+cd #Home/ansible
 echo -e "${green}Running ansible playbook...${reset}"
 ansible-playbook main.yml --become
