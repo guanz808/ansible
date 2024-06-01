@@ -16,6 +16,8 @@
       ansible.builtin.file:
         path: "/home/{{ host_user }}/.config/neofetch/"
         state: directory
+        owner: "{{ host_user }}"
+        group: "{{ host_user }}"
         mode: 0755  
    
 #    - name: Download single file from GitHub"
