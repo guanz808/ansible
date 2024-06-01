@@ -89,20 +89,20 @@ sudo apt install ansible -y
 ansible --version
 
 # Clone Ansible repository (if not already present)
-if [ ! -d ~/ansible ]; then
-  echo -e "${green}Directory ~/ansible not found. Cloning the repository...${reset}"
-  git clone https://github.com/guanz808/ansible.git ~/ansible
+if [ ! -d $HOME/ansible ]; then
+  echo -e "${green}Directory $HOME/ansible not found. Cloning the repository...${reset}"
+  git clone https://github.com/guanz808/ansible.git $HOME/ansible
 else
-  echo -e "${green}Directory ~/ansible already exists. Updating...${reset}"
-  cd ~/ansible
+  echo -e "${green}Directory $HOME/ansible already exists. Updating...${reset}"
+  cd $HOME/ansible
   git pull
 fi
 
 # Handle Vault key
-if [ ! -f ~/ansible/.vault_key ]; then
-  if [ -f ~/ansible/.vault_key_tmp ]; then
+if [ ! -f $HOME/ansible/.vault_key ]; then
+  if [ -f $HOME/ansible/.vault_key_tmp ]; then
     echo -e "${green}Renaming temporary .vault_key_tmp to .vault_key${reset}"
-    mv ~/ansible/.vault_key_tmp ~/ansible/.vault_key
+    mv $HOME/ansible/.vault_key_tmp $HOME/ansible/.vault_key
 
     # Prompt for key with confirmation (use loop)
     while true; do
@@ -114,7 +114,7 @@ if [ ! -f ~/ansible/.vault_key ]; then
       echo
 
       if [ "$KEY" == "$KEY_CONFIRM" ]; then
-        echo "$KEY" > ~/ansible/.vault_key
+        echo "$KEY" > $HOME/ansible/.vault_key
         break
       else
         echo -e "${red}The vault key do not match.${reset}"
@@ -128,12 +128,12 @@ else
 fi
 
 # Check .vault_key content (use stat command for file size)
-if [ $(stat -c %s ~/ansible/.vault_key) -gt 1 ]; then
-  echo -e "${green}The ansible vault [~/ansible/.vault_key] key is present.${reset}"
+if [ $(stat -c %s $HOME/ansible/.vault_key) -gt 1 ]; then
+  echo -e "${green}The ansible vault [$HOME/ansible/.vault_key] key is present.${reset}"
 else
   # Prompt for key with confirmation (use loop)
   while true; do
-    echo -e "${green}The ansible vault [~/ansible/.vault_key] doesn't contain the key.${reset}"
+    echo -e "${green}The ansible vault [$HOME/ansible/.vault_key] doesn't contain the key.${reset}"
     echo -e "${green}Please enter the vault key:${reset}"
     read -s KEY
     echo
@@ -142,7 +142,7 @@ else
     echo
 
     if [ "$KEY" == "$KEY_CONFIRM" ]; then
-      echo "$KEY" > ~/ansible/.vault_key
+      echo "$KEY" > $HOME/ansible/.vault_key
       break
     else
       echo -e "${red}The vault key do not match.${reset}"
@@ -151,6 +151,6 @@ else
 fi
 
 # Run Ansible playbook
-cd #Home/ansible
+cd $Home/ansible
 echo -e "${green}Running ansible playbook...${reset}"
 ansible-playbook main.yml --become
