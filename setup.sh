@@ -99,34 +99,6 @@ else
 fi
 
 # Handle Vault key
-#if [ ! -f $HOME/ansible/.vault_key ]; then
-#  if [ -f $HOME/ansible/.vault_key_tmp ]; then
-#    echo -e "${green}Renaming temporary .vault_key_tmp to .vault_key${reset}"
-#    mv $HOME/ansible/.vault_key_tmp $HOME/ansible/.vault_key
-#
-#    # Prompt for key with confirmation (use loop)
-#    while true; do
-#      echo -e "${green}Please enter the vault key:${reset}"
-#      read -s KEY
-#      echo
-#      echo -e "${green}Please enter the vault key again for confirmation:${reset}"
-#      read -s KEY_CONFIRM
-#      echo
-#
-#      if [ "$KEY" == "$KEY_CONFIRM" ]; then
-#        echo "$KEY" > $HOME/ansible/.vault_key
-#        break
-#      else
-#        echo -e "${red}The vault key do not match.${reset}"
-#      fi
-#    done
-#  else
-#    echo -e "${green}No vault key found.${reset}"
-#  fi
-#else
-#  echo -e "${green}Main vault key already exists.${reset}"
-#fi
-
 if [ ! -f $HOME/ansible/.vault_key ]; then
   if [ -f $HOME/ansible/.vault_key_tmp ]; then
     echo -e "${green}Renaming temporary .vault_key_tmp to .vault_key${reset}"
