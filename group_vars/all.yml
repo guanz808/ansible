@@ -4,7 +4,8 @@ default_roles:
   #- zsh
   #- git
   #- fonts
-  - neofetch
+  #- neofetch
+  - neovim
   #- starship
   #- azure_cli
   #- github_cli
