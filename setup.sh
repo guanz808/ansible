@@ -99,29 +99,56 @@ else
 fi
 
 # Handle Vault key
+#if [ ! -f $HOME/ansible/.vault_key ]; then
+#  if [ -f $HOME/ansible/.vault_key_tmp ]; then
+#    echo -e "${green}Renaming temporary .vault_key_tmp to .vault_key${reset}"
+#    mv $HOME/ansible/.vault_key_tmp $HOME/ansible/.vault_key
+#
+#    # Prompt for key with confirmation (use loop)
+#    while true; do
+#      echo -e "${green}Please enter the vault key:${reset}"
+#      read -s KEY
+#      echo
+#      echo -e "${green}Please enter the vault key again for confirmation:${reset}"
+#      read -s KEY_CONFIRM
+#      echo
+#
+#      if [ "$KEY" == "$KEY_CONFIRM" ]; then
+#        echo "$KEY" > $HOME/ansible/.vault_key
+#        break
+#      else
+#        echo -e "${red}The vault key do not match.${reset}"
+#      fi
+#    done
+#  else
+#    echo -e "${green}No vault key found.${reset}"
+#  fi
+#else
+#  echo -e "${green}Main vault key already exists.${reset}"
+#fi
+
 if [ ! -f $HOME/ansible/.vault_key ]; then
   if [ -f $HOME/ansible/.vault_key_tmp ]; then
     echo -e "${green}Renaming temporary .vault_key_tmp to .vault_key${reset}"
     mv $HOME/ansible/.vault_key_tmp $HOME/ansible/.vault_key
-
-    # Prompt for key with confirmation (use loop)
-    while true; do
-      echo -e "${green}Please enter the vault key:${reset}"
-      read -s KEY
-      echo
-      echo -e "${green}Please enter the vault key again for confirmation:${reset}"
-      read -s KEY_CONFIRM
-      echo
-
-      if [ "$KEY" == "$KEY_CONFIRM" ]; then
-        echo "$KEY" > $HOME/ansible/.vault_key
-        break
-      else
-        echo -e "${red}The vault key do not match.${reset}"
-      fi
-    done
   else
     echo -e "${green}No vault key found.${reset}"
+  fi
+
+  # Prompt for key once and check confirmation internally
+  echo -e "${green}Please enter the vault key:${reset}"
+  read -s KEY
+  echo
+
+  if [[ ! $KEY ]]; then  # Check if key is empty
+    echo -e "${red}Vault key cannot be empty.${reset}"
+  else
+    # Validate key format (optional, adjust as needed)
+    # if ! your_key_validation_function "$KEY"; then
+    #   echo -e "${red}Invalid vault key format.${reset}"
+    # else
+      echo "$KEY" > $HOME/ansible/.vault_key
+    # fi
   fi
 else
   echo -e "${green}Main vault key already exists.${reset}"
