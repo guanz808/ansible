@@ -1,22 +1,55 @@
-- name: Download and run Azure CLI install script
-  block:
-    - name: Add the Azure CLI apt key
-      ansible.builtin.apt_key:
-        url: https://packages.microsoft.com/keys/microsoft.asc
-        keyring:  /etc/apt/keyrings/microsoft.gpg
-    - name: Add Azure CLI repository
-      ansible.builtin.apt_repository:
-        #repo: "deb [arch={{ az_arch.stdout }} signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/azure-cli/ {{ az_dist.stdout }} main"
-        repo: >
-          deb 
-          [signed-by=/etc/apt/keyrings/microsoft.gpg] 
-          https://packages.microsoft.com/repos/azure-cli/ 
-          jammy
-          main
-        state: present
-    - name: Update apt and install Azure CLI
-      ansible.builtin.apt:
-        name: azure-cli
-        state: latest
-        update_cache: true
-      when: ansible_distribution == "Ubuntu"    
+#- name: Download and run Azure CLI install script
+#  block:
+#    - name: Add the Azure CLI apt key
+#      ansible.builtin.apt_key:
+#        url: https://packages.microsoft.com/keys/microsoft.asc
+#        keyring:  /etc/apt/keyrings/microsoft.gpg
+#    - name: Add Azure CLI repository
+#      ansible.builtin.apt_repository:
+#        #repo: "deb [arch={{ az_arch.stdout }} signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/azure-cli/ {{ az_dist.stdout }} main"
+#        repo: >
+#          deb 
+#          [signed-by=/etc/apt/keyrings/microsoft.gpg] 
+#          https://packages.microsoft.com/repos/azure-cli/ 
+#          jammy
+#          main
+#        state: present
+#    - name: Update apt and install Azure CLI
+#      ansible.builtin.apt:
+#        name: azure-cli
+#        state: latest
+#        update_cache: true
+#      when: ansible_distribution == "Ubuntu"  
+
+---
+- name: "Azure | Install dependencies"
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: present
+  become: true
+  loop:
+    - ca-certificates
+    - curl
+    - apt-transport-https
+    - lsb-release
+    - gnupg
+
+- name: "Azure | Download and Add Azure-CLI Key to Apt-Get Keyring"
+  ansible.builtin.apt_key:
+    url: "https://packages.microsoft.com/keys/microsoft.asc"
+    keyring: "/etc/apt/trusted.gpg.d/microsoft.gpg"
+    state: present
+  become: true
+
+- name: "Azure | Add Azure Repository into /etc/apt/sources.list"
+  ansible.builtin.apt_repository:
+    repo: "deb [arch={{ ansible_machine | replace('x86_64', 'amd64') }}] https://packages.microsoft.com/repos/azure-cli/ {{ ansible_distribution_release | lower }} main"
+    state: present
+  become: true
+
+- name: "Azure | Install azure-cli"
+  ansible.builtin.apt:
+    name: azure-cli
+    update_cache: true
+    state: present
+  become: true 
