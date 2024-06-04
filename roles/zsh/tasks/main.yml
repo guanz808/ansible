@@ -73,7 +73,7 @@
         name: "/home/{{ host_user }}"
         shell: /usr/bin/zsh
 
-    - name: Copy config file | /home/{{ host_user }}/.zshenv | 
+    - name: Copy .zshenv file | /home/{{ host_user }}/.zshenv | 
       ansible.builtin.copy:
         src: .zshenv
         dest: "/home/{{ host_user }}/.zshenv"
@@ -81,10 +81,55 @@
         group: "{{ host_user }}"
         mode: "0644"
 
-    - name: "Create symlink to role files directory"
+    - name: "Create symlink to the .zshenv file"
       ansible.builtin.file:
         src: "{{ role_path }}/files/.zshenv"
         dest: "/home/{{ host_user }}/.zshenv"
         state: link
-        force: true        
+        force: true   
+
+    - name: Copy .zcompdump file | /home/{{ host_user }}/.zcompdump  | 
+      ansible.builtin.copy:
+        src: .zcompdump 
+        dest: "/home/{{ host_user }}/.zcompdump"
+        owner: "{{ host_user }}"
+        group: "{{ host_user }}"
+        mode: "0644"
+
+    - name: "Create symlink to the .zcompdump file"
+      ansible.builtin.file:
+        src: "{{ role_path }}/files/.zcompdump"
+        dest: "/home/{{ host_user }}/.zcompdump"
+        state: link
+        force: true 
+
+    - name: Copy .zshrc file | /home/{{ host_user }}/.zshrc  | 
+      ansible.builtin.copy:
+        src: .zshrc 
+        dest: "/home/{{ host_user }}/.zshrc"
+        owner: "{{ host_user }}"
+        group: "{{ host_user }}"
+        mode: "0644"
+
+    - name: "Create symlink to the .zshrc file"
+      ansible.builtin.file:
+        src: "{{ role_path }}/files/.zshrc"
+        dest: "/home/{{ host_user }}/.zshrc"
+        state: link
+        force: true 
+
+    - name: Copy .zshrc_history file | /home/{{ host_user }}/.zshrc_history  | 
+      ansible.builtin.copy:
+        src: .zshrc_history 
+        dest: "/home/{{ host_user }}/.zshrc_history"
+        owner: "{{ host_user }}"
+        group: "{{ host_user }}"
+        mode: "0644"
+
+    - name: "Create symlink to the .zshrc_history file"
+      ansible.builtin.file:
+        src: "{{ role_path }}/files/.zshrc_history"
+        dest: "/home/{{ host_user }}/.zshrc_history"
+        state: link
+        force: true 
   become: true      
