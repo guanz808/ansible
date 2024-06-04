@@ -28,6 +28,8 @@
 
 - name: "Neovim | Config folder"
   ansible.builtin.file:
+    owner: "{{ host_user }}"
+    group: "{{ host_user }}"
     mode: "0755"
     path: "/home/{{ host_user }}/.config/nvim"
     state: directory
