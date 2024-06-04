@@ -19,20 +19,20 @@
         group: "{{ host_user }}"
         mode: 0755  
 
-    - name: Download .zsh configuration file from GitHub
-      get_url:
-        url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.config/zsh/.zshrc
-        dest: "/home/{{ host_user }}/.config/zsh/.zshrc"
-
-    - name: Download zsh history file from GitHub
-      get_url:
-        url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.config/zsh/.zsh_history
-        dest: "/home/{{ host_user }}/.config/zsh/.zshrc_history"
-
-    - name: Download zsh zcompdump file from GitHub
-      get_url:
-        url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.config/zsh/.zcompdump
-        dest: "/home/{{ host_user }}/.config/zsh/.zcompdump"
+#    - name: Download .zsh configuration file from GitHub
+#      get_url:
+#        url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.config/zsh/.zshrc
+#        dest: "/home/{{ host_user }}/.config/zsh/.zshrc"
+#
+#    - name: Download zsh history file from GitHub
+#      get_url:
+#        url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.config/zsh/.zsh_history
+#        dest: "/home/{{ host_user }}/.config/zsh/.zshrc_history"
+#
+#    - name: Download zsh zcompdump file from GitHub
+#      get_url:
+#        url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.config/zsh/.zcompdump
+#        dest: "/home/{{ host_user }}/.config/zsh/.zcompdump"
 
     - name: Create directory /home/{{ host_user }}/.config/zsh/plugins/
       ansible.builtin.file:
