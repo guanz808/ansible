@@ -1,16 +1,16 @@
 default_roles:
-  - system
+  #- system
   #- create_user
-  - zsh
-  - git
-  - fonts
-  - neofetch
+  #- zsh
+  #- git
+  #- fonts
+  #- neofetch
   - neovim
-  - starship
-  - azure_cli
-  - github_cli
-  - kubectl
-  - terraform
+  #- starship
+  #- azure_cli
+  #- github_cli
+  #- kubectl
+  #- terraform
 
 # Role [create use] - valuses stored in vault.yml 
 #new_user: <userName>
