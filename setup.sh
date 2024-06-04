@@ -102,7 +102,7 @@ fi
 if [ ! -f $HOME/ansible/.vault_key ]; then
   if [ -f $HOME/ansible/.vault_key_tmp ]; then
     echo -e "${green}Renaming temporary .vault_key_tmp to .vault_key${reset}"
-    mv $HOME/ansible/.vault_key_tmp $HOME/ansible/.vault_key
+    cp $HOME/ansible/.vault_key_tmp $HOME/ansible/.vault_key
   else
     echo -e "${green}No vault key found.${reset}"
   fi
