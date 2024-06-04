@@ -79,5 +79,12 @@
         dest: "/home/{{ host_user }}/.zshenv"
         owner: "{{ host_user }}"
         group: "{{ host_user }}"
-        mode: "0644"    
+        mode: "0644"
+
+    - name: "Create symlink to role files directory"
+      ansible.builtin.file:
+        src: "{{ role_path }}/files/.zshenv"
+        dest: "/home/{{ host_user }}/.zshenv"
+        state: link
+        force: true        
   become: true      
