@@ -124,6 +124,9 @@
       ansible.builtin.file:
         src: "{{ role_path }}/files/.zshrc_history"
         dest: "/home/{{ host_user }}/.config/zsh/.zshrc_history"
+        owner: "{{ host_user }}"
+        group: "{{ host_user }}"
+        mode: "0755"
         state: link
         force: true 
 
