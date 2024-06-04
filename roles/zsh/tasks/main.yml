@@ -79,5 +79,5 @@
         dest: "/home/{{ host_user }}/.zshenv"
         owner: "{{ host_user }}"
         group: "{{ host_user }}"
-        mode: "0644    
+        mode: "0644"    
   become: true      
