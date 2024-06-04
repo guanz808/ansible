@@ -27,6 +27,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/guanz808/ansible/main/se
 1. neofetch config.conf file not working  
 ~~1. add .zshenv to ~ change to symlink~~
 1. add symlinks to files
+1. zsh history file not working
 
 # References
 https://github.com/techdufus/dotfiles
