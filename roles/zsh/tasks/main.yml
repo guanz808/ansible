@@ -75,12 +75,12 @@
         group: "{{ host_user }}"
         mode: "0755"
 
-    - name: "Create symlink to the .zshenv file"
-      ansible.builtin.file:
-        src: "{{ role_path }}/files/.zshenv"
-        dest: "/home/{{ host_user }}/.zshenv"
-        state: link
-        force: true   
+#    - name: "Create symlink to the .zshenv file"
+#      ansible.builtin.file:
+#        src: "{{ role_path }}/files/.zshenv"
+#        dest: "/home/{{ host_user }}/.zshenv"
+#        state: link
+#        force: true   
 
     - name: Copy .zcompdump file | /home/{{ host_user }}/.config/zsh/.zcompdump  | 
       ansible.builtin.copy:
@@ -90,12 +90,12 @@
         group: "{{ host_user }}"
         mode: "0755"
 
-    - name: "Create symlink to the .zcompdump file"
-      ansible.builtin.file:
-        src: "{{ role_path }}/files/.zcompdump"
-        dest: "/home/{{ host_user }}/.config/zsh/.zcompdump"
-        state: link
-        force: true 
+#    - name: "Create symlink to the .zcompdump file"
+#      ansible.builtin.file:
+#        src: "{{ role_path }}/files/.zcompdump"
+#        dest: "/home/{{ host_user }}/.config/zsh/.zcompdump"
+#        state: link
+#        force: true 
 
     - name: Copy .zshrc file | /home/{{ host_user }}/.config/zsh/.zshrc  | 
       ansible.builtin.copy:
@@ -105,12 +105,12 @@
         group: "{{ host_user }}"
         mode: "0755"
 
-    - name: "Create symlink to the .zshrc file"
-      ansible.builtin.file:
-        src: "{{ role_path }}/files/.zshrc"
-        dest: "/home/{{ host_user }}/.config/zsh/.zshrc"
-        state: link
-        force: true 
+#    - name: "Create symlink to the .zshrc file"
+#      ansible.builtin.file:
+#        src: "{{ role_path }}/files/.zshrc"
+#        dest: "/home/{{ host_user }}/.config/zsh/.zshrc"
+#        state: link
+#        force: true 
 
     - name: Copy .zshrc_history file | /home/{{ host_user }}/.config/zsh/.zshrc_history  | 
       ansible.builtin.copy:
