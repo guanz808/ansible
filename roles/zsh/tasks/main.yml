@@ -62,16 +62,10 @@
         repo: https://github.com/zsh-users/zsh-history-substring-search
         dest: "/home/{{ host_user }}/.config/zsh/plugins/zsh-history-substring-search"   
 
-    - name: Download .zshenv file from GitHub
-      get_url:
-        url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.zshenv
-        dest: "/home/{{ host_user }}/.zshenv"
-
-    - name: Change shell to zsh
-      ansible.builtin.user:
-        #name: "{{ remote_regular_user }}"
-        name: "/home/{{ host_user }}"
-        shell: /usr/bin/zsh
+#    - name: Download .zshenv file from GitHub
+#      get_url:
+#        url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.zshenv
+#        dest: "/home/{{ host_user }}/.zshenv"
 
     - name: Copy .zshenv file | /home/{{ host_user }}/.zshenv | 
       ansible.builtin.copy:
@@ -88,10 +82,10 @@
         state: link
         force: true   
 
-    - name: Copy .zcompdump file | /home/{{ host_user }}/.zcompdump  | 
+    - name: Copy .zcompdump file | /home/{{ host_user }}/.config/zsh/.zcompdump  | 
       ansible.builtin.copy:
         src: .zcompdump 
-        dest: "/home/{{ host_user }}/.zcompdump"
+        dest: "/home/{{ host_user }}/.config/zsh/.zcompdump"
         owner: "{{ host_user }}"
         group: "{{ host_user }}"
         mode: "0644"
@@ -99,14 +93,14 @@
     - name: "Create symlink to the .zcompdump file"
       ansible.builtin.file:
         src: "{{ role_path }}/files/.zcompdump"
-        dest: "/home/{{ host_user }}/.zcompdump"
+        dest: "/home/{{ host_user }}/.config/zsh/.zcompdump"
         state: link
         force: true 
 
-    - name: Copy .zshrc file | /home/{{ host_user }}/.zshrc  | 
+    - name: Copy .zshrc file | /home/{{ host_user }}/.config/zsh/.zshrc  | 
       ansible.builtin.copy:
         src: .zshrc 
-        dest: "/home/{{ host_user }}/.zshrc"
+        dest: "/home/{{ host_user }}/.config/zsh/.zshrc"
         owner: "{{ host_user }}"
         group: "{{ host_user }}"
         mode: "0644"
@@ -114,14 +108,14 @@
     - name: "Create symlink to the .zshrc file"
       ansible.builtin.file:
         src: "{{ role_path }}/files/.zshrc"
-        dest: "/home/{{ host_user }}/.zshrc"
+        dest: "/home/{{ host_user }}/.config/zsh/.zshrc"
         state: link
         force: true 
 
-    - name: Copy .zshrc_history file | /home/{{ host_user }}/.zshrc_history  | 
+    - name: Copy .zshrc_history file | /home/{{ host_user }}/.config/zsh/.zshrc_history  | 
       ansible.builtin.copy:
         src: .zshrc_history 
-        dest: "/home/{{ host_user }}/.zshrc_history"
+        dest: "/home/{{ host_user }}/.config/zsh/.zshrc_history"
         owner: "{{ host_user }}"
         group: "{{ host_user }}"
         mode: "0644"
@@ -129,7 +123,13 @@
     - name: "Create symlink to the .zshrc_history file"
       ansible.builtin.file:
         src: "{{ role_path }}/files/.zshrc_history"
-        dest: "/home/{{ host_user }}/.zshrc_history"
+        dest: "/home/{{ host_user }}/.config/zsh/.zshrc_history"
         state: link
         force: true 
+
+    - name: Change shell to zsh
+      ansible.builtin.user:
+        #name: "{{ remote_regular_user }}"
+        name: "/home/{{ host_user }}"
+        shell: /usr/bin/zsh        
   become: true      
