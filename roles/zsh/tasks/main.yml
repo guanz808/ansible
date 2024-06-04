@@ -72,4 +72,12 @@
         #name: "{{ remote_regular_user }}"
         name: "/home/{{ host_user }}"
         shell: /usr/bin/zsh
+
+    - name: Copy config file | /home/{{ host_user }}/.zshenv | 
+      ansible.builtin.copy:
+        src: .zshenv
+        dest: "/home/{{ host_user }}/.zshenv"
+        owner: "{{ host_user }}"
+        group: "{{ host_user }}"
+        mode: "0644    
   become: true      
