@@ -23,8 +23,9 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/guanz808/ansible/main/se
 
 
 # Notes:
-Add <userName> to vault
-neofetch config.conf file not working
+1. Add <userName> to vault
+1. neofetch config.conf file not working  
+1. add .zshenv to ~
 
 # References
 https://github.com/techdufus/dotfiles
