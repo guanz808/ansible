@@ -120,13 +120,12 @@
         group: "{{ host_user }}"
         mode: "0755"
 
-    - name: "Create symlink to the .zshrc_history file"
-      ansible.builtin.file:
-        src: "{{ role_path }}/files/.zshrc_history"
-        dest: "/home/{{ host_user }}/.config/zsh/.zshrc_history"
-        state: link
-        force: true
-        owner: "{{ host_user }}"
+#    - name: "Create symlink to the .zshrc_history file"
+#      ansible.builtin.file:
+#        src: "{{ role_path }}/files/.zshrc_history"
+#        dest: "/home/{{ host_user }}/.config/zsh/.zshrc_history"
+#        state: link
+#        force: true
 
     - name: Change shell to zsh
       ansible.builtin.user:
