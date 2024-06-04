@@ -73,7 +73,7 @@
         dest: "/home/{{ host_user }}/.zshenv"
         owner: "{{ host_user }}"
         group: "{{ host_user }}"
-        mode: "0777"
+        mode: "0755"
 
     - name: "Create symlink to the .zshenv file"
       ansible.builtin.file:
@@ -88,7 +88,7 @@
         dest: "/home/{{ host_user }}/.config/zsh/.zcompdump"
         owner: "{{ host_user }}"
         group: "{{ host_user }}"
-        mode: "0777"
+        mode: "0755"
 
     - name: "Create symlink to the .zcompdump file"
       ansible.builtin.file:
@@ -103,7 +103,7 @@
         dest: "/home/{{ host_user }}/.config/zsh/.zshrc"
         owner: "{{ host_user }}"
         group: "{{ host_user }}"
-        mode: "0777"
+        mode: "0755"
 
     - name: "Create symlink to the .zshrc file"
       ansible.builtin.file:
@@ -118,7 +118,7 @@
         dest: "/home/{{ host_user }}/.config/zsh/.zshrc_history"
         owner: "{{ host_user }}"
         group: "{{ host_user }}"
-        mode: "0777"
+        mode: "0755"
 
     - name: "Create symlink to the .zshrc_history file"
       ansible.builtin.file:
