@@ -3,10 +3,10 @@ default_roles:
   #- create_user
   - zsh
   #- git
-  - fonts
-  - neofetch
-  - neovim
-  - starship
+  #- fonts
+  #- neofetch
+  #- neovim
+  #- starship
   #- azure_cli
   #- github_cli
   #- kubectl
