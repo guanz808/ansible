@@ -86,4 +86,4 @@ fi
 # Run Ansible playbook
 cd $ANSIBLE_DIR
 echo -e "${green}Running ansible playbook...${reset}"
-#ansible-playbook --vault-password-file $VAULT_SECRET $ANSIBLE_DIR/main.yml --become
+ansible-playbook --vault-password-file $VAULT_SECRET $ANSIBLE_DIR/main.yml --become
