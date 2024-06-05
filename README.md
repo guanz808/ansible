@@ -28,6 +28,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/guanz808/ansible/main/se
 ~~1. add .zshenv to ~ change to symlink~~
 1. add symlinks to files
 1. zsh history file not working
+1. set the order for the roles to run
 
 # References
 https://github.com/techdufus/dotfiles
