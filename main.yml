@@ -1,9 +1,11 @@
 ---
-- hosts: all
-  become: true
+- name: Ansible Config
+  hosts: localhost
+  connection: local
+  #become: true
   gather_facts: true
-  vars_files:
-    - ~/ansible/group_vars/vault.yml  # path to the vault file
+  #vars_files:
+  #  - ~/ansible/group_vars/vault.yml  # path to the vault file
 
   #vars:  # moved to all.yml
   #  new_user: joe
@@ -28,22 +30,19 @@
 
     - name: Update apt and install required system packages
       apt:
-        name:  
-          - curl
-          - unzip
-          - wget
+        name:
           - tree
         state: latest
         update_cache: true
       when: ansible_distribution in ["Debian", "Ubuntu"]  
 
-    - name: Restrist access to the .vault_key file "/home/{{ host_user }}/ansible/.vault_key"
-      file:
-        path: /home/{{ host_user }}/ansible/.vault_key
-        state: file
-        mode: 0600
-        owner: "{{ host_user }}"
-        group: "{{ host_user }}"
+#    - name: Restrist access to the .vault_key file "/home/{{ host_user }}/ansible/.vault_key"
+#      file:
+#        path: /home/{{ host_user }}/ansible/.vault_key
+#        state: file
+#        mode: 0600
+#        owner: "{{ host_user }}"
+#        group: "{{ host_user }}"
 
     - name: Set roles
       ansible.builtin.set_fact:
