@@ -4,8 +4,8 @@
   connection: local
   #become: true
   gather_facts: true
-  #vars_files:
-  #  - ~/ansible/group_vars/vault.yml  # path to the vault file
+  vars_files:
+    - ~/ansible/group_vars/vault.yml  # path to the vault file
 
   #vars:  # moved to all.yml
   #  new_user: joe
