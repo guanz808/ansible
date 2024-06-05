@@ -29,7 +29,7 @@ else
   echo -e "${green}Directory $ANSIBLE_DIR already exists. Updating...${reset}"
   #cd $ANSIBLE_DIR
   #git pull origin upgrade $ANSIBLE_DIR
-  git -C $ANSIBLE_DIR pull origin upgrade --quiet 
+  git -C $ANSIBLE_DIR pull origin upgrade #--quiet 
 fi
 
 # Handle Vault key
