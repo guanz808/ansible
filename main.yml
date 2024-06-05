@@ -21,7 +21,7 @@
       tags:
         always
 
-  - debug:
+    - debug:
       msg="Username: {{ host_user }}, Home directory: {{ ansible_user_dir }}"
 
   tasks:
