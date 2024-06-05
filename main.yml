@@ -21,6 +21,9 @@
       tags:
         always
 
+  - debug:
+      msg="Username: {{ host_user }}, Home directory: {{ ansible_user_dir }}"
+
   tasks:
 #    - name: Install aptitude
 #      apt:
