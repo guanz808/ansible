@@ -10,10 +10,15 @@ VAULT_SECRET="$HOME/ansible/.vault_key"
 ANSIBLE_DIR="$HOME/ansible/main.yml"
 
 # Install Ansible
-echo -e "${green}Installing Ansible...${reset}"
-sudo apt-add-repository ppa:ansible/ansible -y
-sudo apt update -y
-sudo apt install ansible -y
+if ! command -v ansible &> /dev/null
+then
+    echo -e "${green}Ansible not found, installing now...${reset}"
+    sudo apt-add-repository ppa:ansible/ansible -y
+    sudo apt update -y
+    sudo apt install ansible -y
+else
+    echo -e "${green}Ansible is already installed.${reset}"
+fi
 ansible --version
 
 # Clone Ansible repository (if not already present) #### 6/5/24 ####
