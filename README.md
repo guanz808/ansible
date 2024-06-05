@@ -6,7 +6,7 @@ apt install curl git -y
 # run pre.sh
 ```bash
 cd ~  
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/guanz808/ansible/main/pre.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/guanz808/ansible/upgrade/pre.sh)"
 ``` 
 # run setup.sh
 Option 1 
@@ -18,7 +18,7 @@ chmod +x setup.sh
 ```
 Option 2 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/guanz808/ansible/main/setup.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/guanz808/ansible/upgrade/setup.sh)"
 ```
 
 
