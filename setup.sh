@@ -19,7 +19,7 @@ then
 else
     echo -e "${green}Ansible is already installed.${reset}"
 fi
-ansible --version
+#ansible --version
 
 # Clone Ansible repository (if not already present) #### 6/5/24 ####
 if [ ! -d $ANSIBLE_DIR ]; then
