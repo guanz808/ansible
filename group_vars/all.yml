@@ -1,5 +1,5 @@
 default_roles:
-  #- system
+  - system
   #- create_user
   #- zsh
   #- git
