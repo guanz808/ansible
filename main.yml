@@ -23,9 +23,7 @@
 
     - name: Echo Variables
       debug:
-        msg: >
-          host_user is {{ host_user }}
-          ansible_user_dir is {{ ansible_user_dir }}
+        msg: "host_user is {{ host_user }}, ansible_user_dir is {{ ansible_user_dir }}"
 
   tasks:
 #    - name: Install aptitude
