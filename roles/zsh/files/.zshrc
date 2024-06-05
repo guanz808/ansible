@@ -93,10 +93,3 @@ source ~/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
-##########################
-# Set up Starship prompt #
-##########################
-
-eval "$(starship init zsh)"
-
-neofetch

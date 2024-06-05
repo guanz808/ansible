@@ -41,3 +41,12 @@
         insertafter: EOF  # Append the line after the last match (end of file)
         line: 'neofetch'  # Replace 'xxx' with the actual line you want to add
       #when: ansible_distribution == "Ubuntu"
+
+    - name: Edit zshrc"
+      #become: true  # Retain this for clarity and consistency
+      lineinfile:
+        path: "/home/{{ host_user }}/.config/zsh/.zshrc"
+        #regexp: '^$'  # Match an empty line (end of file)
+        insertafter: EOF  # Append the line after the last match (end of file)
+        line: 'neofetch'  # Replace 'xxx' with the actual line you want to add
+      #when: ansible_distribution == "Ubuntu"      
