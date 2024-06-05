@@ -7,7 +7,7 @@ reset='\033[0m'
 
 # Paths
 VAULT_SECRET="$HOME/ansible/.vault_key"
-ANSIBLE_DIR="$HOME/ansible/main.yml"
+ANSIBLE_DIR="$HOME/ansible"
 
 # Install Ansible
 if ! command -v ansible &> /dev/null
@@ -28,7 +28,7 @@ if [ ! -d ANSIBLE_DIR ]; then
 else
   echo -e "${green}Directory $ANSIBLE_DIR already exists. Updating...${reset}"
   cd $ANSIBLE_DIR
-  git pull origin upgrade
+  git pull origin upgrade $ANSIBLE_DIR
 fi
 
 # Handle Vault key
