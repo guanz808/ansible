@@ -112,10 +112,10 @@
 #        state: link
 #        force: true 
 
-    - name: Copy .zhistory file | /home/{{ host_user }}/.config/zsh/.zhistory  | 
+    - name: Copy .zsh_history file | /home/{{ host_user }}/.config/zsh/.zsh_history  | 
       ansible.builtin.copy:
-        src: .zhistory 
-        dest: "/home/{{ host_user }}/.config/zsh/.zhistory"
+        src: .zsh_history 
+        dest: "/home/{{ host_user }}/.config/zsh/.zsh_history"
         owner: "{{ host_user }}"
         group: "{{ host_user }}"
         mode: "0755"

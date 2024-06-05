@@ -11,7 +11,7 @@ source ~/.zshenv
 #########################
 
 export ZSH=$HOME/.config/zsh  # ZSH HOME
-export HISTFILE=$ZSH/.zhistory  # history config 
+export HISTFILE=$ZSH/.zsh_history  # history config 
 export HISTSIZE=10000  # How many commands zsh will load to memory
 export SAVEHIST=10000  # How many commands history will save on file
 export EDITOR=nvim
