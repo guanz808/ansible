@@ -27,8 +27,9 @@ if [ ! -d $ANSIBLE_DIR ]; then
   git clone -b upgrade https://github.com/guanz808/ansible.git $ANSIBLE_DIR
 else
   echo -e "${green}Directory $ANSIBLE_DIR already exists. Updating...${reset}"
-  cd $ANSIBLE_DIR
-  git pull origin upgrade $ANSIBLE_DIR
+  #cd $ANSIBLE_DIR
+  #git pull origin upgrade $ANSIBLE_DIR
+  git -C $ANSIBLE_DIR pull origin upgrade 
 fi
 
 # Handle Vault key
