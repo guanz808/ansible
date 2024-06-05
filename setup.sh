@@ -88,14 +88,14 @@ sudo apt update -y
 sudo apt install ansible -y
 ansible --version
 
-# Clone Ansible repository (if not already present)
+# Clone Ansible repository (if not already present) #### 6/5/24 ####
 if [ ! -d $HOME/ansible ]; then
   echo -e "${green}Directory $HOME/ansible not found. Cloning the repository...${reset}"
-  git clone https://github.com/guanz808/ansible.git $HOME/ansible
+  git clone -b upgrade https://github.com/guanz808/ansible.git $HOME/ansible
 else
   echo -e "${green}Directory $HOME/ansible already exists. Updating...${reset}"
   cd $HOME/ansible
-  git pull
+  git pull origin upgrade
 fi
 
 # Handle Vault key
