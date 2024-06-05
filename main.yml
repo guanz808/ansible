@@ -18,6 +18,7 @@
   pre_tasks:
     - name:  Detect Host User
       ansible.builtin.import_tasks: pre_tasks/whoami.yml
+      become: true
       tags:
         always
 
