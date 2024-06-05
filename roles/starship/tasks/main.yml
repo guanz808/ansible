@@ -57,13 +57,13 @@
 
 - name: Check for zshrc file
   stat:
-    path: "/home/{{ host_user }}/.config/zsh/zshrc"
+    path: "/home/{{ host_user }}/.config/zsh/.zshrc"
   register: zshrc_stat
 
 - name: Edit zshrc (if it exists)
   become: true
   lineinfile:
-    path: "/home/{{ host_user }}/.config/zsh/zshrc"
+    path: "/home/{{ host_user }}/.config/zsh/.zshrc"
     #regexp: '^$'  # Commented out (optional for specific insertion)
     insertafter: EOF
     line: 'eval "$(starship init zsh)'
