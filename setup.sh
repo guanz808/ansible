@@ -24,12 +24,12 @@ fi
 # Clone Ansible repository (if not already present) #### 6/5/24 ####
 if [ ! -d $ANSIBLE_DIR ]; then
   echo -e "${green}Directory $ANSIBLE_DIR not found. Cloning the repository...${reset}"
-  git clone -b upgrade https://github.com/guanz808/ansible.git $ANSIBLE_DIR
+  git clone --quiet -b upgrade https://github.com/guanz808/ansible.git $ANSIBLE_DIR
 else
   echo -e "${green}Directory $ANSIBLE_DIR already exists. Updating...${reset}"
   #cd $ANSIBLE_DIR
   #git pull origin upgrade $ANSIBLE_DIR
-  git -C $ANSIBLE_DIR pull origin upgrade 
+  git -C $ANSIBLE_DIR pull origin upgrade --quiet 
 fi
 
 # Handle Vault key
