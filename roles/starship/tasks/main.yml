@@ -48,7 +48,10 @@
   get_url:
     url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.config/starship/starship.toml
     dest: "/home/{{ host_user }}/.config/starship/starship.toml" 
-
+    owner: "{{ host_user }}"
+    group: "{{ host_user }}"
+    mode: 0755  
+    
 #- name: Check for zshrc file
 #  stat:
 #    path: "/home/{{ host_user }}/.config/zsh/.zshrc"
