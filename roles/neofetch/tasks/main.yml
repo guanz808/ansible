@@ -1,7 +1,4 @@
 ---
-dependencies:
-  - zsh
-  
 - name: Install and configure Neofetch
   block:
     - name: Install neofetch
