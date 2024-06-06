@@ -52,7 +52,7 @@ else
   # Add the line to permanently modify PATH (optional)
   # Uncomment the following line to add the path to your shell profile
   # echo "export PATH=\$PATH:$script_path" >> ~/.bashrc
-  chmod +x setup.sh 
+  sudo chmod +x setup.sh 
 fi
 
 echo "PATH is now: $PATH"
