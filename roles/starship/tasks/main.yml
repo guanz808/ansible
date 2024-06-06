@@ -27,12 +27,12 @@
 - name: Download install.sh from starship.rs
   get_url:
     url: https://starship.rs/install.sh
-    dest: ~/starshipInstall.sh
+    dest: "/home/{{ host_user }}/starshipInstall.sh"
     mode: '0755'
   when: starship_version.rc != 0
 
 - name: Run the install script
-  command: ~/starshipInstall.sh -y
+  command: "/home/{{ host_user }}/starshipInstall.sh -y"
   when: starship_version.rc != 0
   become: true
 
