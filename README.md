@@ -1,6 +1,6 @@
 # Run Updates
 ```bash
-apt-get update && apt-get install -y  
+apt update && apt install -y  
 apt install curl git -y  
 ```
 # run pre.sh
