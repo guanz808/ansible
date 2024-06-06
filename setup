@@ -44,9 +44,14 @@ else
   # Add the script to the .bashrc PATH
   echo "export PATH=\$PATH:$HOME/ansible/" >> ~/.bashrc
   echo "$script_path added to your PATH."
+fi
 
-  # Change permissions
-  sudo chmod +x $SCRIPT_PATH/setup
+# Check if the permissions is set if not change
+if [ ! -x "$SCRIPT_PATH/setup" ]; then
+  echo "The script '$SCRIPT_PATH/setup' is not executable. Granting execute permission..."
+  sudo chmod +x "$SCRIPT_PATH/setup"
+else
+  echo "The script '$SCRIPT_PATH/setup' already has execute permission."
 fi
 ###################################################################################
 
