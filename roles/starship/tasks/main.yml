@@ -69,5 +69,5 @@
     path: "/home/{{ host_user }}/.config/zsh/.zshrc"
     #regexp: '^$'  # Commented out (optional for specific insertion)
     insertafter: EOF
-    line: 'eval "$(starship init zsh)'
+    line: 'eval "$(starship init zsh)"'
   when: zshrc_stat.stat.exists  # Only run if file exists   
