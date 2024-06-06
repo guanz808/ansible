@@ -5,7 +5,7 @@
       - wget
     state: latest
     update_cache: true
-    become: true
+  become: true
   when: ansible_distribution in ["Debian", "Ubuntu"]  
 
 #- name: Download and install Starship
