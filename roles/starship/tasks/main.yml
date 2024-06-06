@@ -8,16 +8,6 @@
   become: true
   when: ansible_distribution in ["Debian", "Ubuntu"]  
 
-#- name: Download and install Starship
-#  get_url:
-#    url: https://starship.rs/install.sh
-#    dest: ~/starshipInstall.sh
-#    mode: '0755'
-#
-#- name: Run the install script
-#  command: ~/starshipInstall.sh -y
-#  become: true
-
 - name: Check if Starship is installed
   command: starship --version
   register: starship_version
@@ -51,7 +41,8 @@
     owner: "{{ host_user }}"
     group: "{{ host_user }}"
     mode: 0755  
-    
+
+## Hard coded the setting in the .zshrc file - this coded not needed any more
 #- name: Check for zshrc file
 #  stat:
 #    path: "/home/{{ host_user }}/.config/zsh/.zshrc"
