@@ -27,6 +27,7 @@
         name: kubectl
         state: latest
         update_cache: true
+      become: true  
 
 - name: Install kubectl bash completion
   block:
