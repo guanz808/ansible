@@ -20,7 +20,6 @@ then
 else
     echo -e "${green}Ansible is already installed.${reset}"
 fi
-#ansible --version
 
 # Clone Ansible repository (if not already present) #### 6/5/24 ####
 if [ ! -d $ANSIBLE_DIR ]; then
@@ -28,19 +27,14 @@ if [ ! -d $ANSIBLE_DIR ]; then
   git clone --quiet -b upgrade https://github.com/guanz808/ansible.git $ANSIBLE_DIR
 else
   echo -e "${green}Directory $ANSIBLE_DIR already exists. Updating...${reset}"
-  #cd $ANSIBLE_DIR
-  #git pull origin upgrade $ANSIBLE_DIR
   git -C $ANSIBLE_DIR pull origin upgrade #--quiet 
 fi
 
 ###################################################################################
 # Check if the script path is already in PATH
-#if echo $PATH | grep -q "$SCRIPT_PATH"; then
 if cat .bashrc | grep -q "$SCRIPT_PATH"; then
   echo "$SCRIPT_PATH is already in your PATH."
 else
-  # Add the script path to PATH
-  #export PATH="$PATH:$SCRIPT_PATH"
   # Add the script to the .bashrc PATH
   echo "export PATH=\$PATH:$HOME/ansible/" >> ~/.bashrc
   echo "$script_path added to your PATH."
@@ -63,21 +57,14 @@ if [ ! -f $VAULT_SECRET ]; then
   else
     echo -e "${green}No vault key found.${reset}"
   fi
-
   # Prompt for key once and check confirmation internally
   echo -e "${green}Please enter the vault key:${reset}"
   read -s KEY
   echo
-
   if [[ ! $KEY ]]; then  # Check if key is empty
     echo -e "${red}Vault key cannot be empty.${reset}"
   else
-    # Validate key format (optional, adjust as needed)
-    # if ! your_key_validation_function "$KEY"; then
-    #   echo -e "${red}Invalid vault key format.${reset}"
-    # else
       echo "$KEY" > $VAULT_SECRET
-    # fi
   fi
 else
   echo -e "${green}Main vault key already exists.${reset}"
