@@ -1,4 +1,3 @@
 ---
 dependencies:
-  - zsh
-  - neofetch
+  - { role: zsh }
