@@ -33,28 +33,22 @@ else
   git -C $ANSIBLE_DIR pull origin upgrade #--quiet 
 fi
 
-
-# Add the ~/ansible/setup.sh to the Path
-# Check if the script exists
-#if [ ! -f "$SCRIPT_PATH" ]; then
-#  echo "Error: Script '$SCRIPT_PATH' does not exist!"
-#  exit 1
-#fi
-
+###################################################################################
 # Check if the script path is already in PATH
-if echo $PATH | grep -q "$SCRIPT_PATH"; then
+#if echo $PATH | grep -q "$SCRIPT_PATH"; then
+if cat .bashrc | grep -q "$SCRIPT_PATH"; then
   echo "$SCRIPT_PATH is already in your PATH."
 else
   # Add the script path to PATH
   export PATH="$PATH:$SCRIPT_PATH"
+  # Add the script to the .bashrc PATH
   echo "export PATH=\$PATH:$HOME/ansible/setup.sh" >> ~/.bashrc
   echo "$script_path added to your PATH."
 
-  # Add the line to permanently modify PATH (optional)
-  # Uncomment the following line to add the path to your shell profile
-  # echo "export PATH=\$PATH:$SCRIPT_PATH" >> ~/.bashrc
+  # Change permissions
   sudo chmod +x $SCRIPT_PATH/setup
 fi
+###################################################################################
 
 # Handle Vault key
 if [ ! -f $VAULT_SECRET ]; then
