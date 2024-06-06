@@ -8,7 +8,7 @@ reset='\033[0m'
 # Paths
 VAULT_SECRET="$HOME/ansible/.vault_key"
 ANSIBLE_DIR="$HOME/ansible"
-script_path="~/ansible/setup.sh"
+script_path="$HOME/ansible/setup.sh"
 
 # Install Ansible
 if ! command -v ansible &> /dev/null
