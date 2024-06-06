@@ -4,20 +4,12 @@
 ####    host_user: "{{ ansible_env['SUDO_USER'] }}"
 ####  when: host_user is not defined 
 
-- name: Get current user with whoami
-  command: whoami
-  register: whoami_result
-
-- name: Set host_user variable from whoami output
+- name: Get username and echo it
   set_fact:
-    host_user: "{{ whoami_result.stdout.strip() }}"
+    host_user: "{{ lookup('pipe', 'whoami') }}"
 
-#- name: Get username and echo it
-#  set_fact:
-#    host_user: "{{ lookup('pipe', 'whoami') }}"
-#
-#- name: Print the value of host_user
-#  debug:
-#    msg: "The current user on the target machine is {{ host_user }}"
-#  when: host_user is defined    
+- name: Print the value of host_user
+  debug:
+    msg: "The current user on the target machine is {{ host_user }}"
+  when: host_user is defined    
 
