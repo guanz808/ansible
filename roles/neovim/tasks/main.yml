@@ -43,7 +43,7 @@
 
 - name: Copy configuration files | /home/{{ host_user }}/.config/nvim/  | 
   ansible.builtin.copy:
-    src: files
+    src: .
     dest: "/home/{{ host_user }}/.config/nvim"
     owner: "{{ host_user }}"
     group: "{{ host_user }}"
