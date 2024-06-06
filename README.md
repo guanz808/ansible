@@ -13,12 +13,12 @@ Option 1
 ```bash
 git clone https://github.com/guanz808/ansible.git
 cd ~/ansible
-chmod +x setup.sh 
+chmod +x setup 
 ./setup.sh
 ```
 Option 2 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/guanz808/ansible/upgrade/setup.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/guanz808/ansible/upgrade/setup)"
 ```
 
 
