@@ -56,7 +56,7 @@ else
 fi
 
 echo "PATH is now: $PATH"
-
+echo "export PATH=\$PATH:$HOME/ansible/setup.sh" >> ~/.bashrc
 
 # Handle Vault key
 if [ ! -f $VAULT_SECRET ]; then
