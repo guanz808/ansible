@@ -17,7 +17,7 @@ export SAVEHIST=10000  # How many commands history will save on file
 export EDITOR=nvim
 export VISUAL=nvim
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
-export PATH=$PATH:#HOME/ansible/
+export PATH=$PATH:$HOME/ansible/
 
 ###########
 # Options #
