@@ -36,10 +36,10 @@ fi
 
 # Add the ~/ansible/setup.sh to the Path
 # Check if the script exists
-if [ ! -f "$script_path" ]; then
-  echo "Error: Script '$script_path' does not exist!"
-  exit 1
-fi
+#if [ ! -f "$script_path" ]; then
+#  echo "Error: Script '$script_path' does not exist!"
+#  exit 1
+#fi
 
 # Check if the script path is already in PATH
 if echo $PATH | grep -q "$script_path"; then
