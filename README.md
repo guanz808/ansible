@@ -14,7 +14,7 @@ Option 1
 git clone https://github.com/guanz808/ansible.git
 cd ~/ansible
 chmod +x setup 
-./setup.sh
+./setup
 ```
 Option 2 
 ```bash
