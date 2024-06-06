@@ -8,7 +8,7 @@ reset='\033[0m'
 # Paths
 VAULT_SECRET="$HOME/ansible/.vault_key"
 ANSIBLE_DIR="$HOME/ansible"
-script_path="$HOME/ansible/setup.sh"
+SCRIPT_PATH="$HOME/ansible/setup.sh"
 
 # Install Ansible
 if ! command -v ansible &> /dev/null
@@ -36,23 +36,23 @@ fi
 
 # Add the ~/ansible/setup.sh to the Path
 # Check if the script exists
-#if [ ! -f "$script_path" ]; then
-#  echo "Error: Script '$script_path' does not exist!"
+#if [ ! -f "$SCRIPT_PATH" ]; then
+#  echo "Error: Script '$SCRIPT_PATH' does not exist!"
 #  exit 1
 #fi
 
 # Check if the script path is already in PATH
-if echo $PATH | grep -q "$script_path"; then
-  echo "$script_path is already in your PATH."
+if echo $PATH | grep -q "$SCRIPT_PATH"; then
+  echo "$SCRIPT_PATH is already in your PATH."
 else
   # Add the script path to PATH
-  export PATH="$PATH:$script_path"
+  export PATH="$PATH:$SCRIPT_PATH"
   echo "$script_path added to your PATH."
 
   # Add the line to permanently modify PATH (optional)
   # Uncomment the following line to add the path to your shell profile
-  # echo "export PATH=\$PATH:$script_path" >> ~/.bashrc
-  sudo chmod +x $script_path
+  # echo "export PATH=\$PATH:$SCRIPT_PATH" >> ~/.bashrc
+  sudo chmod +x $SCRIPT_PATH
 fi
 
 echo "PATH is now: $PATH"
