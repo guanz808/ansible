@@ -47,16 +47,14 @@ if echo $PATH | grep -q "$SCRIPT_PATH"; then
 else
   # Add the script path to PATH
   export PATH="$PATH:$SCRIPT_PATH"
+  echo "export PATH=\$PATH:$HOME/ansible/setup.sh" >> ~/.bashrc
   echo "$script_path added to your PATH."
 
   # Add the line to permanently modify PATH (optional)
   # Uncomment the following line to add the path to your shell profile
   # echo "export PATH=\$PATH:$SCRIPT_PATH" >> ~/.bashrc
-  sudo chmod +x $SCRIPT_PATH
+  sudo chmod +x $SCRIPT_PATH/setup
 fi
-
-echo "PATH is now: $PATH"
-echo "export PATH=\$PATH:$HOME/ansible/setup.sh" >> ~/.bashrc
 
 # Handle Vault key
 if [ ! -f $VAULT_SECRET ]; then
