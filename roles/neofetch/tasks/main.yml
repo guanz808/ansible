@@ -56,7 +56,7 @@
         path: "/home/{{ host_user }}/.config/zsh/.zshrc"
       register: zshrc_stat
     
-    - name: Edit zshrc (if it exists)
+    - name: Add neofetch to the .zshrc file (if it exists)
       become: true
       lineinfile:
         path: "/home/{{ host_user }}/.config/zsh/.zshrc"
