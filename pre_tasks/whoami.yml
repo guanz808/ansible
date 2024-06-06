@@ -12,13 +12,12 @@
 #  set_fact:
 #    host_user: "{{ whoami_result.stdout.strip() }}"
 
-####- name: Print the value of host_user
-####  debug:
-####    msg: "The current user on the target machine is {{ host_user }}"
-####  when: host_user is defined    
-
 - name: Get username and echo it
   set_fact:
     host_user: "{{ lookup('pipe', 'whoami') }}"
+
+- name: Print the value of host_user
   debug:
-    msg="Username: {{ host_user }}"
+    msg: "The current user on the target machine is {{ host_user }}"
+  when: host_user is defined    
+
