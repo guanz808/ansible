@@ -112,13 +112,13 @@
 #        state: link
 #        force: true 
 
-    - name: Copy .zsh_history file | /home/{{ host_user }}/.config/zsh/.zsh_history  | 
-      ansible.builtin.copy:
-        src: .zsh_history 
-        dest: "/home/{{ host_user }}/.config/zsh/.zsh_history"
-        owner: "{{ host_user }}"
-        group: "{{ host_user }}"
-        mode: "0755"
+#    - name: Copy .zsh_history file | /home/{{ host_user }}/.config/zsh/.zsh_history  | 
+#      ansible.builtin.copy:
+#        src: .zsh_history 
+#        dest: "/home/{{ host_user }}/.config/zsh/.zsh_history"
+#        owner: "{{ host_user }}"
+#        group: "{{ host_user }}"
+#        mode: "0755"
 
 #    - name: "Create symlink to the .zshrc_history file"
 #      ansible.builtin.file:
