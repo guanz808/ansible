@@ -11,9 +11,9 @@ source ~/.zshenv
 #########################
 
 export ZSH=$HOME/.config/zsh  # ZSH HOME
-export HISTFILE=$ZSH/.zsh_history  # history config 
-export HISTSIZE=10000  # How many commands zsh will load to memory
-export SAVEHIST=10000  # How many commands history will save on file
+#export HISTFILE=$ZSH/.zsh_history  # history config 
+#export HISTSIZE=10000  # How many commands zsh will load to memory
+#export SAVEHIST=10000  # How many commands history will save on file
 export EDITOR=nvim
 export VISUAL=nvim
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
@@ -81,7 +81,7 @@ alias ls='ls --color=auto'  # zsh colored files directories
 # plugins
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+#source ~/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 ###############
 # Keybindings #
@@ -90,8 +90,8 @@ source ~/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-
 ### history substring search options
 #bindkey '^[[A' history-substring-search-up
 #bindkey '^[[B' history-substring-search-down
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
+#bindkey "$terminfo[kcuu1]" history-substring-search-up
+#bindkey "$terminfo[kcud1]" history-substring-search-down
 
 ##########################
 # Set up Starship prompt #

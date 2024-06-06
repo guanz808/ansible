@@ -57,10 +57,10 @@
         repo: https://github.com/zsh-users/zsh-autosuggestions.git
         dest: "/home/{{ host_user }}/.config/zsh/plugins/zsh-autosuggestions"
 
-    - name: download the zsh-history-substring-search plugin to a custom plugin directory and install
-      git:
-        repo: https://github.com/zsh-users/zsh-history-substring-search
-        dest: "/home/{{ host_user }}/.config/zsh/plugins/zsh-history-substring-search"   
+#    - name: download the zsh-history-substring-search plugin to a custom plugin directory and install
+#      git:
+#        repo: https://github.com/zsh-users/zsh-history-substring-search
+#        dest: "/home/{{ host_user }}/.config/zsh/plugins/zsh-history-substring-search"   
 
 #    - name: Download .zshenv file from GitHub
 #      get_url:
