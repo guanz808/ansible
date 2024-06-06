@@ -42,7 +42,7 @@ else
   # Add the script path to PATH
   #export PATH="$PATH:$SCRIPT_PATH"
   # Add the script to the .bashrc PATH
-  echo "export PATH=\$PATH:$HOME/ansible/setup" >> ~/.bashrc
+  echo "export PATH=\$PATH:$HOME/ansible/" >> ~/.bashrc
   echo "$script_path added to your PATH."
 
   # Change permissions
