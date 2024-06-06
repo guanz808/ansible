@@ -38,6 +38,7 @@
           - tree
         state: latest
         update_cache: true
+      become: true  
       when: ansible_distribution in ["Debian", "Ubuntu"]  
 
 #    - name: Restrist access to the .vault_key file "/home/{{ host_user }}/ansible/.vault_key"
