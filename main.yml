@@ -65,7 +65,19 @@
 #      tags:
 #        - always   
 
-  roles:
+- name: Run roles
+  hosts: all
+  tasks:
+  - name: Run multiple roles
+    include_role: "{{ item }}"
+    loop_control: loop_var=role_name
+    loop: "{{ roles }}"
+    ignore_errors: yes
+  - name: Subsequent task (runs even if roles fail)
+    debug:
+      msg: "Playbook continued after potential role failures"
+
+  default_roles:
     - system
     #- create_user
     - zsh
