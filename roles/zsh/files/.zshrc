@@ -11,12 +11,10 @@ source ~/.zshenv
 #########################
 
 export ZSH=$HOME/.config/zsh  # ZSH HOME
-export HISTFILE=$ZSH/.zsh_history  # history config 
-export HISTSIZE=10000  # How many commands zsh will load to memory
-export SAVEHIST=10000  # How many commands history will save on file
 export EDITOR=nvim
 export VISUAL=nvim
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
+export PATH=$PATH:$HOME/ansible/
 
 ###########
 # Options #
@@ -34,8 +32,7 @@ alias ll='ls -lah'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'  # zsh colored files directories
  
- 
-#############
+ #############
 # Functions #
 #############
  
@@ -76,20 +73,23 @@ alias ls='ls --color=auto'  # zsh colored files directories
 # themes/plugins #
 #################
 
+###############
 # themes
+###############
 
+###############
 # plugins
+###############
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+#source ~/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 ###############
 # Keybindings #
 ###############
 
-### history substring search options
-#bindkey '^[[A' history-substring-search-up
-#bindkey '^[[B' history-substring-search-down
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
+##########################
+# Set up Starship prompt #
+##########################
 
+eval "$(starship init zsh)"

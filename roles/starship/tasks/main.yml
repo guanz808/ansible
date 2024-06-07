@@ -5,16 +5,8 @@
       - wget
     state: latest
     update_cache: true
+  become: true
   when: ansible_distribution in ["Debian", "Ubuntu"]  
-
-- name: Download and install Starship
-  get_url:
-    url: https://starship.rs/install.sh
-    dest: ~/starshipInstall.sh
-    mode: '0755'
-
-- name: Run the install script
-  command: ~/starshipInstall.sh -y
 
 - name: Check if Starship is installed
   command: starship --version
@@ -25,13 +17,14 @@
 - name: Download install.sh from starship.rs
   get_url:
     url: https://starship.rs/install.sh
-    dest: ~/starshipInstall.sh
+    dest: "/home/{{ host_user }}/starshipInstall.sh"
     mode: '0755'
   when: starship_version.rc != 0
 
 - name: Run the install script
-  command: ~/starshipInstall.sh -y
+  command: "/home/{{ host_user }}/starshipInstall.sh -y"
   when: starship_version.rc != 0
+  become: true
 
 - name: Create directory /home/{{ host_user }}/.config/starship/
   ansible.builtin.file:
@@ -41,30 +34,33 @@
     group: "{{ host_user }}"
     mode: 0755  
 
-- name: Download .zsh configuration file from GitHub
-  get_url:
-    url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.config/starship/starship.toml
-    dest: "/home/{{ host_user }}/.config/starship/starship.toml" 
+#- name: Download starship.toml configuration file from GitHub
+#  get_url:
+#    url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.config/starship/starship.toml
+#    dest: "/home/{{ host_user }}/.config/starship/starship.toml" 
+#    owner: "{{ host_user }}"
+#    group: "{{ host_user }}"
+#    mode: 0755  
 
-#- name: Edit zshrc"
-#  #become: true  # Retain this for clarity and consistency
+- name: Copy starship.toml file | /home/{{ host_user }}/.config/starship/starship.toml  | 
+  ansible.builtin.copy:
+    src: starship.toml 
+    dest: "/home/{{ host_user }}/.config/starship/"
+    owner: "{{ host_user }}"
+    group: "{{ host_user }}"
+    mode: "0755"
+
+## Hard coded the setting in the .zshrc file - this coded not needed any more
+#- name: Check for zshrc file
+#  stat:
+#    path: "/home/{{ host_user }}/.config/zsh/.zshrc"
+#  register: zshrc_stat
+#
+#- name: Edit zshrc (if it exists)
+#  become: true
 #  lineinfile:
 #    path: "/home/{{ host_user }}/.config/zsh/.zshrc"
-#    #regexp: '^$'  # Match an empty line (end of file)
-#    insertafter: EOF  # Append the line after the last match (end of file)
-#    line: 'eval "$(starship init zsh)"'  # Replace 'xxx' with the actual line you want to add
-#  #when: ansible_distribution == "Ubuntu"    
-
-- name: Check for zshrc file
-  stat:
-    path: "/home/{{ host_user }}/.config/zsh/.zshrc"
-  register: zshrc_stat
-
-- name: Edit zshrc (if it exists)
-  become: true
-  lineinfile:
-    path: "/home/{{ host_user }}/.config/zsh/.zshrc"
-    #regexp: '^$'  # Commented out (optional for specific insertion)
-    insertafter: EOF
-    line: 'eval "$(starship init zsh)'
-  when: zshrc_stat.stat.exists  # Only run if file exists   
+#    #regexp: '^$'  # Commented out (optional for specific insertion)
+#    insertafter: EOF
+#    line: 'eval "$(starship init zsh)"'
+#  when: zshrc_stat.stat.exists  # Only run if file exists   

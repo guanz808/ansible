@@ -5,6 +5,7 @@
       - unzip
     state: latest
     update_cache: true
+  become: true  
   when: ansible_distribution in ["Debian", "Ubuntu"]  
 
 - name: Ensure fonts directory "/home/{{ host_user }}/.local/share/fonts"

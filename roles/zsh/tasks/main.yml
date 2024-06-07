@@ -11,7 +11,7 @@
         path: "/home/{{ host_user }}/.zshrc"
         state: absent
 
-    - name: Create directory /home/{{ host_user }}/.config/zsh/
+    - name: Create zsh directory /home/{{ host_user }}/.config/zsh/
       ansible.builtin.file:
         path: "/home/{{ host_user }}/.config/zsh/"
         state: directory
@@ -19,33 +19,13 @@
         group: "{{ host_user }}"
         mode: 0755  
 
-#    - name: Download .zsh configuration file from GitHub
-#      get_url:
-#        url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.config/zsh/.zshrc
-#        dest: "/home/{{ host_user }}/.config/zsh/.zshrc"
-#
-#    - name: Download zsh history file from GitHub
-#      get_url:
-#        url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.config/zsh/.zsh_history
-#        dest: "/home/{{ host_user }}/.config/zsh/.zshrc_history"
-#
-#    - name: Download zsh zcompdump file from GitHub
-#      get_url:
-#        url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.config/zsh/.zcompdump
-#        dest: "/home/{{ host_user }}/.config/zsh/.zcompdump"
-
-    - name: Create directory /home/{{ host_user }}/.config/zsh/plugins/
+    - name: Create plugins /home/{{ host_user }}/.config/zsh/plugins/
       ansible.builtin.file:
         path: "/home/{{ host_user }}/.config/zsh/plugins/"
         state: directory
         owner: "{{ host_user }}"
         group: "{{ host_user }}"
         mode: 0755  
-
-    - name: Install ZSH syntax highlighting and autosuggestions
-      get_url:
-        url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.config/zsh/.zshrc
-        dest: "/home/{{ host_user }}/.config/zsh/.zshrc"
 
     - name: Install ZSH syntax highlighting
       git:
@@ -57,16 +37,6 @@
         repo: https://github.com/zsh-users/zsh-autosuggestions.git
         dest: "/home/{{ host_user }}/.config/zsh/plugins/zsh-autosuggestions"
 
-    - name: download the zsh-history-substring-search plugin to a custom plugin directory and install
-      git:
-        repo: https://github.com/zsh-users/zsh-history-substring-search
-        dest: "/home/{{ host_user }}/.config/zsh/plugins/zsh-history-substring-search"   
-
-#    - name: Download .zshenv file from GitHub
-#      get_url:
-#        url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.zshenv
-#        dest: "/home/{{ host_user }}/.zshenv"
-
     - name: Copy .zshenv file | /home/{{ host_user }}/.zshenv | 
       ansible.builtin.copy:
         src: .zshenv
@@ -74,13 +44,6 @@
         owner: "{{ host_user }}"
         group: "{{ host_user }}"
         mode: "0755"
-
-#    - name: "Create symlink to the .zshenv file"
-#      ansible.builtin.file:
-#        src: "{{ role_path }}/files/.zshenv"
-#        dest: "/home/{{ host_user }}/.zshenv"
-#        state: link
-#        force: true   
 
     - name: Copy .zcompdump file | /home/{{ host_user }}/.config/zsh/.zcompdump  | 
       ansible.builtin.copy:
@@ -90,13 +53,6 @@
         group: "{{ host_user }}"
         mode: "0755"
 
-#    - name: "Create symlink to the .zcompdump file"
-#      ansible.builtin.file:
-#        src: "{{ role_path }}/files/.zcompdump"
-#        dest: "/home/{{ host_user }}/.config/zsh/.zcompdump"
-#        state: link
-#        force: true 
-
     - name: Copy .zshrc file | /home/{{ host_user }}/.config/zsh/.zshrc  | 
       ansible.builtin.copy:
         src: .zshrc 
@@ -104,28 +60,6 @@
         owner: "{{ host_user }}"
         group: "{{ host_user }}"
         mode: "0755"
-
-#    - name: "Create symlink to the .zshrc file"
-#      ansible.builtin.file:
-#        src: "{{ role_path }}/files/.zshrc"
-#        dest: "/home/{{ host_user }}/.config/zsh/.zshrc"
-#        state: link
-#        force: true 
-
-    - name: Copy .zsh_history file | /home/{{ host_user }}/.config/zsh/.zsh_history  | 
-      ansible.builtin.copy:
-        src: .zsh_history 
-        dest: "/home/{{ host_user }}/.config/zsh/.zsh_history"
-        owner: "{{ host_user }}"
-        group: "{{ host_user }}"
-        mode: "0755"
-
-#    - name: "Create symlink to the .zshrc_history file"
-#      ansible.builtin.file:
-#        src: "{{ role_path }}/files/.zshrc_history"
-#        dest: "/home/{{ host_user }}/.config/zsh/.zshrc_history"
-#        state: link
-#        force: true
 
     - name: Change shell to zsh
       ansible.builtin.user:

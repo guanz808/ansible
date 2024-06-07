@@ -1,3 +1,4 @@
+---
 - name: Install and configure Neofetch
   block:
     - name: Install neofetch
@@ -51,12 +52,12 @@
     #    line: 'neofetch'  # Replace 'xxx' with the actual line you want to add
     #  #when: ansible_distribution == "Ubuntu"      
 
-    - name: Check for zshrc file
+    - name: Check for .zshrc file
       stat:
         path: "/home/{{ host_user }}/.config/zsh/.zshrc"
       register: zshrc_stat
     
-    - name: Edit zshrc (if it exists)
+    - name: Add neofetch to the .zshrc file (if it exists)
       become: true
       lineinfile:
         path: "/home/{{ host_user }}/.config/zsh/.zshrc"

@@ -34,9 +34,17 @@
     path: "/home/{{ host_user }}/.config/nvim"
     state: directory
 
-- name: "Neovim | Create symlink to role files directory"
-  ansible.builtin.file:
-    src: "{{ role_path }}/files"
+#- name: "Neovim | Create symlink to role files directory"
+#  ansible.builtin.file:
+#    src: "{{ role_path }}/files"
+#    dest: "/home/{{ host_user }}/.config/nvim"
+#    state: link
+#    force: true  
+
+- name: Copy configuration files | /home/{{ host_user }}/.config/nvim/  | 
+  ansible.builtin.copy:
+    src: .
     dest: "/home/{{ host_user }}/.config/nvim"
-    state: link
-    force: true  
+    owner: "{{ host_user }}"
+    group: "{{ host_user }}"
+    mode: "0755"
