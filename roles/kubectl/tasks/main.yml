@@ -8,7 +8,7 @@
   become: true
   become_user: root
   become_method: sudo
-  become_ask_pass: true
+  #become_ask_pass: true
 
 # see https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management
 - name: Add the kubernetes repository
