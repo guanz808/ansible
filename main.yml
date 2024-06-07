@@ -66,15 +66,15 @@
 #        - always   
 
   roles:
-    - system
+    #- system
     #- create_user
-    - zsh
-    - git
-    - fonts
-    - neofetch
-    - neovim
-    - starship
-    - azure_cli
-    - github_cli
+    #- zsh
+    #- git
+    #- fonts
+    #- neofetch
+    #- neovim
+    #- starship
+    #- azure_cli
+    #- github_cli
     - kubectl
-    - terraform 
+    #- terraform 
