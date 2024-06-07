@@ -20,16 +20,20 @@ then
 else
     echo -e "${green}Ansible is already installed.${reset}"
 fi
-
+###################################################################################
+## Update the local git repository
+###################################################################################
 # Clone Ansible repository (if not already present) #### 6/5/24 ####
 if [ ! -d $ANSIBLE_DIR ]; then
   echo -e "${green}Directory $ANSIBLE_DIR not found. Cloning the repository...${reset}"
   git clone --quiet -b main https://github.com/guanz808/ansible.git $ANSIBLE_DIR
 else
   echo -e "${green}Directory $ANSIBLE_DIR already exists. Updating...${reset}"
-  git -C $ANSIBLE_DIR pull origin upgrade #--quiet 
+  git -C $ANSIBLE_DIR pull origin main #--quiet 
 fi
 
+###################################################################################
+## Set the permissions for the setup file
 ###################################################################################
 # Check if the script path is already in PATH
 if cat .bashrc | grep -q "$SCRIPT_PATH"; then
@@ -47,8 +51,10 @@ if [ ! -x "$SCRIPT_PATH/setup" ]; then
 else
   echo "The script '$SCRIPT_PATH/setup' already has execute permission."
 fi
-###################################################################################
 
+###################################################################################
+## Check for the presense of the .vault_key file and prompt for the key
+###################################################################################
 # Handle Vault key
 if [ ! -f $VAULT_SECRET ]; then
   if [ -f $ANSIBLE_DIR/.vault_key_tmp ]; then
@@ -93,6 +99,9 @@ else
   done
 fi
 
+###################################################################################
+## Run the ansibe playbook
+###################################################################################
 # Run Ansible playbook
 cd $ANSIBLE_DIR
 echo -e "${green}Running ansible playbook...${reset}"
