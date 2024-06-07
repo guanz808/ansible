@@ -18,7 +18,6 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/guanz808/ansible/upgrade
 1. neofetch config.conf file not working  
 ~~1. add .zshenv to ~ change to symlink~~
 ~~1. set the order for the roles to run~~
-1. kubectl - run as root  
 
 # References
 https://github.com/techdufus/dotfiles
