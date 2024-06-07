@@ -41,14 +41,6 @@
       become: true  
       when: ansible_distribution in ["Debian", "Ubuntu"]  
 
-#    - name: Restrist access to the .vault_key file "/home/{{ host_user }}/ansible/.vault_key"
-#      file:
-#        path: /home/{{ host_user }}/ansible/.vault_key
-#        state: file
-#        mode: 0600
-#        owner: "{{ host_user }}"
-#        group: "{{ host_user }}"
-
 #    - name: Set roles
 #      ansible.builtin.set_fact:
 #        run_roles: "{{ ansible_run_tags != ['all'] and ansible_run_tags or default_roles | difference(exclude_roles | default([])) }}"
