@@ -1,7 +1,7 @@
 default_roles:
   - system
   #- create_user
-  #- zsh
+  - zsh
   - git
   - fonts
   - neofetch
