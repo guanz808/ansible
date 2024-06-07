@@ -77,16 +77,17 @@
     debug:
       msg: "Playbook continued after potential role failures"
 
-  default_roles:
-    - system
-    #- create_user
-    - zsh
-    - git
-    - fonts
-    - neofetch
-    - neovim
-    - starship
-    - azure_cli
-    - github_cli
-    - kubectl
-    - terraform 
+  vars:
+    default_roles:
+      - system
+      #- create_user
+      - zsh
+      - git
+      - fonts
+      - neofetch
+      - neovim
+      - starship
+      - azure_cli
+      - github_cli
+      - kubectl
+      - terraform 
