@@ -31,6 +31,19 @@
 #        update_cache: true
 #      become: true  
 
+
+- name: Update apt and install required system packages
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - gnupg
+    state: latest
+    update_cache: true
+  become: true  
+  when: ansible_distribution in ["Debian", "Ubuntu"]  
+
 - name: kubectl | Adding kubernetes apt key
   ansible.builtin.apt_key:
     url: "https://pkgs.k8s.io/core:/stable:/{{ kubectl.repo_version }}/deb/Release.key"
