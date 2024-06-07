@@ -68,23 +68,8 @@
     - name: Run multiple roles
       include_role: "{{ item }}"
       loop_control: loop_var=role_name
-      loop: "{{ roles }}"
+      loop: "{{ default_roles }}"
       ignore_errors: yes
     - name: Subsequent task (runs even if roles fail)
       debug:
         msg: "Playbook continued after potential role failures"
-  
-    #vars:
-      default_roles:
-        - system
-        #- create_user
-        - zsh
-        - git
-        - fonts
-        - neofetch
-        - neovim
-        - starship
-        - azure_cli
-        - github_cli
-        - kubectl
-        - terraform 
