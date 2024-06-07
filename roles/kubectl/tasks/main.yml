@@ -7,7 +7,7 @@
     keyring: /etc/apt/keyrings/pkgs.k8s.io.gpg
   become: true
   become_user: root
-  become_method: su
+  become_method: enable
 
 # see https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management
 - name: Add the kubernetes repository
