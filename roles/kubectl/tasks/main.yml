@@ -5,7 +5,7 @@
     #url: https://pkgs.k8s.io/core:/stable:/v{{ (k8s_client_kubectl_version | split('.'))[:2] | join('.') }}/deb/Release.key
     url: https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key
     keyring: /etc/apt/keyrings/pkgs.k8s.io.gpg
-  #become: true
+  become: true
   #become_user: root
   become_method: su
 
