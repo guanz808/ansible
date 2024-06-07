@@ -2,8 +2,6 @@
 - name: Ansible Config
   hosts: localhost
   connection: local
-  #become: true
-  #gather_facts: true
   vars_files:
     - ~/ansible/group_vars/vault.yml  # path to the vault file
 
@@ -26,12 +24,6 @@
         msg: "host_user is {{ host_user }}, ansible_user_dir is {{ ansible_user_dir }}"
 
   tasks:
-#    - name: Install aptitude
-#      apt:
-#        name: aptitude
-#        state: latest
-#        update_cache: true 
-
     - name: Update apt and install required system packages
       apt:
         name:
