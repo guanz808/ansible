@@ -73,5 +73,5 @@
 #      tags:
 #        - always   
 
-    roles:
-      - zsh  
+  roles:
+    - zsh  
