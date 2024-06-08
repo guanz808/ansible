@@ -4,12 +4,12 @@
 ####    host_user: "{{ ansible_env['SUDO_USER'] }}"
 ####  when: host_user is not defined 
 
-- name: Get username and echo it
-  set_fact:
-    host_user: "{{ lookup('pipe', 'whoami') }}"
-
-- name: Print the value of host_user
-  debug:
-    msg: "The current user on the target machine is {{ host_user }}"
-  when: host_user is defined    
+#- name: Get username and echo it
+#  set_fact:
+#    host_user: "{{ lookup('pipe', 'whoami') }}"
+#
+#- name: Print the value of host_user
+#  debug:
+#    msg: "The current user on the target machine is {{ host_user }}"
+#  when: host_user is defined    
 
