@@ -52,4 +52,5 @@
 ## green.example.com
 ## blue.example.com
 
-localhost ansible_connection=local
+localhost 
+#ansible_connection=local
