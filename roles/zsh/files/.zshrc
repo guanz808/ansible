@@ -5,7 +5,7 @@
 ##############
 
 source ~/.zshenv 
- 
+
 #########################
 # Environment variables #
 #########################
@@ -16,10 +16,16 @@ export VISUAL=nvim
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export PATH=$PATH:$HOME/ansible/
 
+export HISTFILE="$HOME/.config/zsh/zsh_history"
+export HISTSIZE=1000
+export SAVEHIST=$HISTSIZE
+
 ###########
 # Options #
 ###########
 
+setopt INC_APPEND_HISTORY  
+setopt HIST_SAVE_NO_DUPS  #  Saves no more than one duplicate
 setopt HIST_IGNORE_ALL_DUPS  # History won't save duplicates
 setopt HIST_FIND_NO_DUPS  # History won't show duplicates on search
 
