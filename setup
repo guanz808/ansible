@@ -32,9 +32,9 @@ else
   git -C $ANSIBLE_DIR pull origin main #--quiet 
 fi
 
-###################################################################################
-## Set the ansible path and set the permissions for the setup file
-###################################################################################
+echo "###################################################################################"
+echo "## Set the ansible path and set the permissions for the setup file"
+echo "###################################################################################"
 # Check if the script path is already in PATH
 if cat .bashrc | grep -q "$SCRIPT_PATH"; then
   echo "$SCRIPT_PATH is already in your PATH."
