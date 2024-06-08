@@ -33,7 +33,7 @@ else
 fi
 
 ###################################################################################
-## Set the permissions for the setup file
+## Set the ansible path and set the permissions for the setup file
 ###################################################################################
 # Check if the script path is already in PATH
 if cat .bashrc | grep -q "$SCRIPT_PATH"; then
