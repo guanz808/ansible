@@ -1,5 +1,12 @@
 #!/bin/bash
 
+echo "Total arguments passed: $#"  # $# gives the number of arguments
+
+for argument in "$@"
+do
+  echo "Processing argument: $argument"
+done
+
 # Colors (use predefined variables)
 red='\033[0;31m'
 green='\033[0;32m'
