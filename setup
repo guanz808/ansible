@@ -25,10 +25,10 @@ fi
 ###################################################################################
 # Clone Ansible repository (if not already present) #### 6/5/24 ####
 if [ ! -d $ANSIBLE_DIR ]; then
-  echo -e "${green}Directory $ANSIBLE_DIR not found. Cloning the repository...${reset}"
+  echo -e "${green}The git repolistory $ANSIBLE_DIR not found. Cloning the repository...${reset}"
   git clone --quiet -b main https://github.com/guanz808/ansible.git $ANSIBLE_DIR
 else
-  echo -e "${green}Directory $ANSIBLE_DIR already exists. Updating...${reset}"
+  echo -e "${green}The git repository $ANSIBLE_DIR already exists. Updating...${reset}"
   git -C $ANSIBLE_DIR pull origin main #--quiet 
 fi
 
