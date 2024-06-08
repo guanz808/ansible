@@ -19,7 +19,7 @@
     #  tags:
     #    always
 
-    - name: Echo Variables
+    - name: Valiate host_user and ansible_user_dir
       debug:
         msg: "host_user is {{ host_user }}, ansible_user_dir is {{ ansible_user_dir }}"
 

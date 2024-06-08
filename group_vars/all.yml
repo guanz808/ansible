@@ -1,8 +1,8 @@
 default_roles:
-  #-  # System packages should be installed first
-  #  #- system
-  #  #- create_user
-  #  - zsh
+  -  # System packages should be installed first
+    #- system
+    #- create_user
+    - zsh
   #-  # Install remaining roles in order  
   #  - git
   #  - fonts
