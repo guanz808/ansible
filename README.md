@@ -24,6 +24,7 @@ setup -t "<role1>,<role2>"
 1. neofetch config.conf file not working  
 ~~1. add .zshenv to ~ change to symlink~~
 ~~1. set the order for the roles to run~~
+1. editing the setup file in github causes a git pull merg conflict on the remote
 
 # References
 https://github.com/techdufus/dotfiles
