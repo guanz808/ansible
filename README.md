@@ -13,6 +13,12 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/guanz808/ansible/main/pr
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/guanz808/ansible/main/setup)"
 ```
 
+# To run install a role using a tag(s)
+```
+setup -t <role>
+setup -t "<role1>,<role2>"
+```
+
 # Notes:
 1. Add <userName> to vault
 1. neofetch config.conf file not working  
