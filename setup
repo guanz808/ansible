@@ -1,5 +1,5 @@
 #!/bin/bash
-
+echo "test"
 # Colors (use predefined variables)
 red='\033[0;31m'
 green='\033[0;32m'
