@@ -59,20 +59,20 @@ alias ls='ls --color=auto'  # zsh colored files directories
  
 # All escape codes at http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
  
-# %F{color} sets the color
-# %n is username
-# %M is full hostname
-# %f resets formatting
-# %~ is current working directory
-# PROMPT='%F{green}%n@%F{cyan}%m:%~%f$vcs_info_msg_0_> '
+ %F{color} sets the color
+ %n is username
+ %M is full hostname
+ %f resets formatting
+ %~ is current working directory
+ PROMPT='%F{green}%n@%F{cyan}%m:%~%f$vcs_info_msg_0_> '
  
-# %W is the date
-# %* is time
-# %? is the return code of previous command
-# %(q.n.y) is a ternary that checks the variable in question %q
-#   and outputs value n if it's false or 0, and value y is output
-#   when %q is non-zero.
-#   Replace q, n, and y with whatever values you want
+ %W is the date
+ %* is time
+ %? is the return code of previous command
+ %(q.n.y) is a ternary that checks the variable in question %q
+   and outputs value n if it's false or 0, and value y is output
+   when %q is non-zero.
+   Replace q, n, and y with whatever values you want
 # RPROMPT='%W %* %(?.√.%?)'
 
 #################
