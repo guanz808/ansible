@@ -8,7 +8,7 @@ default_roles:
   #  - fonts
   #  - neofetch
   #  - neovim
-  #  - starship
+    - starship
   #  - azure_cli
   #  - github_cli
   #  - kubectl
