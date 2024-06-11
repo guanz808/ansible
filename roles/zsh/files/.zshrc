@@ -28,6 +28,7 @@ setopt INC_APPEND_HISTORY
 setopt HIST_SAVE_NO_DUPS  #  Saves no more than one duplicate
 setopt HIST_IGNORE_ALL_DUPS  # History won't save duplicates
 setopt HIST_FIND_NO_DUPS  # History won't show duplicates on search
+setopt PROMPT_SUBST  # Used with Prompt customization
 
 ###########
 # Aliases #
@@ -56,8 +57,7 @@ alias ls='ls --color=auto'  # zsh colored files directories
 ######################## !! Uncomment if not using starship !!
 # Prompt customization #
 ########################
-setopt PROMPT_SUBST
-#PROMPT='%F{green}%*%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f$ ' 
+
 # All escape codes at http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
  
  #%F{color} sets the color
