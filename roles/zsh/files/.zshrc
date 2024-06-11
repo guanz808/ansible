@@ -59,11 +59,11 @@ alias ls='ls --color=auto'  # zsh colored files directories
  
 # All escape codes at http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
  
- %F{color} sets the color
- %n is username
- %M is full hostname
- %f resets formatting
- %~ is current working directory
+ #%F{color} sets the color
+ #%n is username
+ #%M is full hostname
+ #%f resets formatting
+ #%~ is current working directory
  PROMPT='%F{green}%n@%F{cyan}%m:%~%f$vcs_info_msg_0_> '
  
 # %W is the date
