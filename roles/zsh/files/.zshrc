@@ -56,6 +56,7 @@ alias ls='ls --color=auto'  # zsh colored files directories
 ######################## !! Uncomment if not using starship !!
 # Prompt customization #
 ########################
+setopt PROMPT_SUBST
 PROMPT='%F{green}%*%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f$ ' 
 # All escape codes at http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
  
