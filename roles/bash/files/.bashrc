@@ -79,18 +79,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# fzf function
-_fzf_comprun () {
-  local command=$1
-  shift
-
-  if [[ $command == "cd" ]]; then
-    fzf "$@" | xargs -I {} sh -c "tree -C {} | head -200"
-  else
-    fzf "$@"
-  fi
-}
-
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
