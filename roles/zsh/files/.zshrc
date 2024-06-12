@@ -38,7 +38,8 @@ alias zrc="$EDITOR $ZSH/.zshrc"
 alias ll='ls -lah'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'  # zsh colored files directories
- 
+alias cat='batcat'
+
  #############
 # Functions #
 #############
