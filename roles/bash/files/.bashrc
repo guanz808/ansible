@@ -78,21 +78,22 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # fzf function
-_fzf_comprun() {
+_fzf_comprun () {
   local command=$1
   shift
 
-  case "$command" in
-    cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
-    *)            fzf "$@" ;;
-  esac
+  if [[ $command == "cd" ]]; then
+    fzf "$@" | xargs -I {} sh -c "tree -C {} | head -200"
+  else
+    fzf "$@"
+  fi
 }
 
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias cat='batcat'
+alias bat='batcat'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
