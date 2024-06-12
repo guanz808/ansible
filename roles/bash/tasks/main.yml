@@ -1,0 +1,5 @@
+- name: "Bash | Copy .bashrc"
+  ansible.builtin.copy:
+    src: ".bashrc"
+    dest: "/home/{{ host_user }}/.bashrc"
+    mode: "0644"
