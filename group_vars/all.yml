@@ -2,6 +2,7 @@ default_roles:
   -  # System packages should be installed first
     #- system
     #- create_user
+    - bash
     - zsh
   -  # Install remaining roles in order  
     - git
