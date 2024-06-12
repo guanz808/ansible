@@ -3,7 +3,8 @@
 # for examples
 
 export PATH=$PATH:$HOME/ansible/
-export FZF_DEFAULT_COMMAND='find . -type f ! -path "*git*"' # Use the CLI find to get all files, excluding any filepath containing the string "git".
+# Use the CLI find to get all files, excluding any filepath containing the string "git"
+export FZF_DEFAULT_COMMAND='find . -type f ! -path "*git*"'
 
 
 # If not running interactively, don't do anything
