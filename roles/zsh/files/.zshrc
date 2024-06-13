@@ -15,7 +15,7 @@ export EDITOR=nvim
 export VISUAL=nvim
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 export PATH=$PATH:$HOME/ansible/
-
+export LC_ALL=en_US.UTF-8
 export HISTFILE=$HOME/.config/zsh/zsh_history
 export HISTSIZE=1000
 export SAVEHIST=$HISTSIZE

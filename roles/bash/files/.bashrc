@@ -5,7 +5,7 @@
 export PATH=$PATH:$HOME/ansible/
 # Use the CLI find to get all files, excluding any filepath containing the string "git"
 export FZF_DEFAULT_COMMAND='find . -type f ! -path "*git*"'
-
+export LC_ALL=en_US.UTF-8
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
