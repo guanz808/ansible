@@ -19,6 +19,8 @@ export PATH=$PATH:$HOME/ansible/
 export HISTFILE=$HOME/.config/zsh/zsh_history
 export HISTSIZE=1000
 export SAVEHIST=$HISTSIZE
+# Use the CLI find to get all files, excluding any filepath containing the string "git"
+export FZF_DEFAULT_COMMAND='find . -type f ! -path "*git*"'
 
 ###########
 # Options #
