@@ -6,15 +6,15 @@ default_roles:
     - zsh
   -  # Install remaining roles in order  
     - tmux
-  #  - git
+    - git
     - fonts
     - neofetch
     - neovim
     - starship
-  #  - azure_cli
-  #  - github_cli
-  #  - kubectl
-  #  - terraform
+    - azure_cli
+    - github_cli
+    - kubectl
+    - terraform
 
 host_user: "{{ lookup('pipe', 'whoami') }}"
 
