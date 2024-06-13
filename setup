@@ -35,22 +35,22 @@ fi
 ###################################################################################
 ## Set the ansible path and set the permissions for the setup file
 ###################################################################################
-## Check if the script path is already in PATH
-#if cat $HOME/.bashrc | grep -q "$SCRIPT_PATH"; then
-#  echo "$SCRIPT_PATH is already in your PATH."
-#else
-#  # Add the script to the .bashrc PATH
-#  echo "export PATH=\$PATH:$HOME/ansible/" >> $HOME/.bashrc
-#  echo "$script_path added to your PATH."
-#fi
-#
-## Check if the permissions is set if not change
-#if [ ! -x "$SCRIPT_PATH/setup" ]; then
-#  echo "The script '$SCRIPT_PATH/setup' is not executable. Granting execute permission..."
-#  sudo chmod +x "$SCRIPT_PATH/setup"
-#else
-#  echo "The script '$SCRIPT_PATH/setup' already has execute permission."
-#fi
+# Check if the script path is already in PATH
+if cat $HOME/.bashrc | grep -q "$SCRIPT_PATH"; then
+  echo "$SCRIPT_PATH is already in your PATH."
+else
+  # Add the script to the .bashrc PATH
+  echo "export PATH=\$PATH:$HOME/ansible/" >> $HOME/.bashrc
+  echo "$script_path added to your PATH."
+fi
+
+# Check if the permissions is set if not change
+if [ ! -x "$SCRIPT_PATH/setup" ]; then
+  echo "The script '$SCRIPT_PATH/setup' is not executable. Granting execute permission..."
+  sudo chmod +x "$SCRIPT_PATH/setup"
+else
+  echo "The script '$SCRIPT_PATH/setup' already has execute permission."
+fi
 
 ###################################################################################
 ## Check for the presense of the .vault_key file and prompt for the key
