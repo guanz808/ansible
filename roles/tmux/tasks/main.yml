@@ -17,8 +17,3 @@
     owner: "{{ host_user }}"
     group: "{{ host_user }}"
     mode: "0755"
-
-#- name: Download single file from GitHub"
-#  get_url:
-#    url: https://raw.githubusercontent.com/guanz808/ansible/main/roles/tmux/files/tmux/tmux.conf
-#    dest: "/home/{{ host_user }}/.config/neofetch/config.conf"
