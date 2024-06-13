@@ -21,18 +21,18 @@
         group: "{{ host_user }}"
         mode: 0755  
    
-#    - name: Download single file from GitHub"
-#      get_url:
-#        url: https://raw.githubusercontent.com/guanz808/dotfiles/main/.config/neofetch/config.conf
-#        dest: "/home/{{ host_user }}/.config/neofetch/config.conf"
-
-    - name: Copy config file | /home/{{ host_user }}/.config/neofetch/config.conf | 
-      ansible.builtin.copy:
-        src: config.conf
+    - name: Download single file from GitHub"
+      get_url:
+        url: https://raw.githubusercontent.com/guanz808/ansible/main/roles/neofetch/files/config.conf
         dest: "/home/{{ host_user }}/.config/neofetch/config.conf"
-        owner: "{{ host_user }}"
-        group: "{{ host_user }}"
-        mode: "0644"
+
+#    - name: Copy config file | /home/{{ host_user }}/.config/neofetch/config.conf | 
+#      ansible.builtin.copy:
+#        src: config.conf
+#        dest: "/home/{{ host_user }}/.config/neofetch/config.conf"
+#        owner: "{{ host_user }}"
+#        group: "{{ host_user }}"
+#        mode: "0644"
 
     - name: Edit bashrc"
       #become: true  # Retain this for clarity and consistency
