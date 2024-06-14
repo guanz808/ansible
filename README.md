@@ -20,8 +20,7 @@ setup -t "<role1>,<role2>"
 ```
 
 # Notes:
-1. Add <userName> to vault
-1. To install the Tmux plugins: ctrl+b I
+1. To install the Tmux plugins: ctrl+b I  
 
 # References
 https://github.com/techdufus/dotfiles
