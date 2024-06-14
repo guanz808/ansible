@@ -21,9 +21,7 @@ setup -t "<role1>,<role2>"
 
 # Notes:
 1. Add <userName> to vault
-1. neofetch config.conf file not working  
-~~1. add .zshenv to ~ change to symlink~~
-~~1. set the order for the roles to run~~
+1. To install the Tmux plugins: ctrl+b I
 
 # References
 https://github.com/techdufus/dotfiles
