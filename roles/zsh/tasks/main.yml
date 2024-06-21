@@ -61,6 +61,14 @@
         group: "{{ host_user }}"
         mode: "0755"
 
+    - name: Add zsh to the .bashrc file (if it exists)
+      become: true
+      lineinfile:
+        path: "/home/{{ host_user }}/.bashrc"
+        #regexp: '^$'  # Commented out (optional for specific insertion)
+        insertafter: EOF
+        line: 'zsh'
+
     - name: Change shell to zsh
       ansible.builtin.user:
         #name: "{{ remote_regular_user }}"
