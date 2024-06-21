@@ -34,14 +34,14 @@
         group: "{{ host_user }}"
         mode: "0644"
 
-    - name: Edit bashrc"
-      #become: true  # Retain this for clarity and consistency
-      lineinfile:
-        path: "/home/{{ host_user }}/.bashrc"
-        #regexp: '^$'  # Match an empty line (end of file)
-        insertafter: EOF  # Append the line after the last match (end of file)
-        line: 'neofetch'  # Replace 'xxx' with the actual line you want to add
-      #when: ansible_distribution == "Ubuntu"
+#    - name: Edit bashrc"
+#      #become: true  # Retain this for clarity and consistency
+#      lineinfile:
+#        path: "/home/{{ host_user }}/.bashrc"
+#        #regexp: '^$'  # Match an empty line (end of file)
+#        insertafter: EOF  # Append the line after the last match (end of file)
+#        line: 'neofetch'  # Replace 'xxx' with the actual line you want to add
+#      #when: ansible_distribution == "Ubuntu"
 
     #- name: Edit zshrc"
     #  #become: true  # Retain this for clarity and consistency
