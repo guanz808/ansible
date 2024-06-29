@@ -31,6 +31,7 @@
           - bat
           - fzf
           - mc
+          - python3-pip
         state: latest
         update_cache: true
       become: true  
