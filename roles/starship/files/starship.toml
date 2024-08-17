@@ -46,3 +46,4 @@ files = ["Dockerfile", "docker-compose.yml", "docker-compose.yaml"]
 when = "command -v docker &> /dev/null   
  && echo $?"
 prefix = "on "
+
