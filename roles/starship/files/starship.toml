@@ -12,23 +12,23 @@ right_format = """$all"""
 truncation_length = 3
 truncate_to_repo = true
 
-[username]
-style_user = "green bold"
-style_root = "red bold"
-format = "[$user]($style) "
-disabled = false
-show_always = true
+#[username]
+#style_user = "green bold"
+#style_root = "red bold"
+#format = "[$user]($style) "
+#disabled = false
+#show_always = true
 
-[hostname]
-ssh_only = false
-format = 'on [$hostname](bold yellow) '
-trim_at = "."
-disabled = false
+#[hostname]
+#ssh_only = false
+#format = 'on [$hostname](bold yellow) '
+#trim_at = "."
+#disabled = false
 
-[character]
-success_symbol = "[\\$](bold green)"
-error_symbol = "[\\$](bold red)"
-#vicmd_symbol = "[](bold green)"
+#[character]
+#success_symbol = "[\\$](bold green)"
+#error_symbol = "[\\$](bold red)"
+##vicmd_symbol = "[](bold green)"
 
 [git_branch]
 symbol = ' '
