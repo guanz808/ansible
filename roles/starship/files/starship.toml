@@ -25,10 +25,10 @@ format = 'on [$hostname](bold yellow) '
 trim_at = "."
 disabled = false
 
-#[character]
-#success_symbol = "[\\$](bold green)"
-#error_symbol = "[\\$](bold red)"
-##vicmd_symbol = "[](bold green)"
+[character]
+success_symbol = "[\\$](bold green)"
+error_symbol = "[\\$](bold red)"
+#vicmd_symbol = "[](bold green)"
 
 [git_branch]
 symbol = ' '
