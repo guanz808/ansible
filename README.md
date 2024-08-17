@@ -13,6 +13,9 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/guanz808/ansible/main/pr
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/guanz808/ansible/main/setup)"
 ```
 
+# to update rerun after the initial setup
+setup
+
 # To run install a role using a tag(s)
 ```
 setup -t <role>
@@ -21,6 +24,13 @@ setup -t "<role1>,<role2>"
 
 # Notes:
 1. To install the Tmux plugins: ctrl+b I  
+
+# Troubleshooting
+1. To fix:  ERROR: Ansible could not initialize the preferred locale: unsupported locale setting
+    ```
+    sudo apt-get install locales
+    sudo locale-gen "en_US.UTF-8"
+    ```
 
 # References
 https://github.com/techdufus/dotfiles
