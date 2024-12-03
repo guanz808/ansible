@@ -8,7 +8,7 @@ apt install curl git -y
 cd ~  
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/guanz808/ansible/main/pre.sh)"
 ``` 
-# run setup.sh
+# run setup.sh (skip this step if running in WSL)
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/guanz808/ansible/main/setup)"
 ```
@@ -23,7 +23,9 @@ setup -t "<role1>,<role2>"
 ```
 
 # Notes:
-1. To install the Tmux plugins: ctrl+b I  
+1. If running in WSL change the font to CaskaydiaCove Nerd Font  
+ - Terminal > Settings > Profiles > <distro> Additional Settings > Appearance > Font face
+2. To install the Tmux plugins: ctrl+b I  
 
 # Troubleshooting
 1. To fix:  ERROR: Ansible could not initialize the preferred locale: unsupported locale setting
