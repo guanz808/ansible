@@ -9,7 +9,7 @@
         repo: >
           deb 
           #[arch={{ ansible_architecture }} signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] 
-          [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg]
+          [arch=[arch=amd64] signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg]
           https://cli.github.com/packages 
           stable 
           main
