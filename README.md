@@ -24,7 +24,7 @@ setup -t "<role1>,<role2>"
 
 # Notes:
 1. If running in WSL change the font to CaskaydiaCove Nerd Font  
- - Terminal > Settings > Profiles > <distro> Additional Settings > Appearance > Font face
+   - Terminal > Settings > Profiles > <distro> Additional Settings > Appearance > Font face
 2. To install the Tmux plugins: ctrl+b I  
 
 # Troubleshooting
