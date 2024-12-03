@@ -55,7 +55,7 @@
     path: "/home/{{ host_user }}/starshipInstall.sh"
     state: absent
 
-## Hard coded the setting in the .zshrc file - this coded not needed any more
+## Hard coded the setting in the .zshrc file - this code is not needed any more
 #- name: Check for zshrc file
 #  stat:
 #    path: "/home/{{ host_user }}/.config/zsh/.zshrc"
