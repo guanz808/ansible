@@ -1,7 +1,7 @@
 # Run Updates
 ```bash
-apt update && apt upgrade -y  
-apt install curl git -y  
+sudo apt update && sudo apt upgrade -y  
+sudo apt install curl git -y  
 ```
 # run pre.sh (skip this step if running in WSL)
 ```bash
