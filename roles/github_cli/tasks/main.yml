@@ -3,6 +3,10 @@
     - name: Get system architecture
       shell: dpkg --print-architecture
       register: arch_output
+    - name: Print system architecture
+      debug:
+        msg: "System architecture: {{ arch_output.stdout.strip() }}"  
+        
     - name: Download and set up GitHub CLI GPG key
       ansible.builtin.apt_key:
         url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
