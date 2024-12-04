@@ -1,20 +1,22 @@
 # Run Updates
 ```bash
-apt update && apt install -y  
+apt update && apt upgrade -y  
 apt install curl git -y  
 ```
-# run pre.sh
+# run pre.sh (skip this step if running in WSL)
 ```bash
 cd ~  
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/guanz808/ansible/main/pre.sh)"
 ``` 
-# run setup.sh (skip this step if running in WSL)
+# run setup.sh 
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/guanz808/ansible/main/setup)"
 ```
 
 # to update rerun after the initial setup
+```
 setup
+```
 
 # To run install a role using a tag(s)
 ```
