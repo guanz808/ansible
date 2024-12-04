@@ -1,16 +1,17 @@
 ---
-- name: "Neovim | {{ ansible_distribution }} | Dependencies"
-  ansible.builtin.apt:
-    name:
-      - cmake
-      - curl
-      - pkg-config
-      - libtool
-      - unzip
-      - ansible-lint
-      - ripgrep
-    state: present
-  become: true
+# Neovim was upgraded so this is not needed
+#- name: "Neovim | {{ ansible_distribution }} | Dependencies"
+#  ansible.builtin.apt:
+#    name:
+#      - cmake
+#      - curl
+#      - pkg-config
+#      - libtool
+#      - unzip
+#      - ansible-lint
+#      - ripgrep
+#    state: present
+#  become: true
 
 # Neovim was upgraded so this is not needed
 #- name: "Neovim | {{ ansible_distribution }} | add repo"
