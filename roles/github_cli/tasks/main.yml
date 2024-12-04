@@ -6,7 +6,7 @@
     - name: Print system architecture
       debug:
         msg: "System architecture: {{ arch_output.stdout.strip() }}"  
-        
+
     - name: Download and set up GitHub CLI GPG key
       ansible.builtin.apt_key:
         url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
@@ -15,8 +15,7 @@
       ansible.builtin.apt_repository:
         repo: >
           deb 
-          #[arch={{ ansible_architecture | replace('x86_64', 'amd64') }} signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] 
-          [arch={{ ansible_architecture }} signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg]
+          [arch={{ ansible_architecture }} signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] 
           https://cli.github.com/packages 
           stable 
           main
