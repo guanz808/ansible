@@ -12,12 +12,11 @@
     state: present
   become: true
 
-- name: "Neovim | {{ ansible_distribution }} | add repo"
-  ansible.builtin.apt_repository:
-    repo: ppa:neovim-ppa/unstable
-    state: present
-    update_key: yes
-  become: true
+#- name: "Neovim | {{ ansible_distribution }} | add repo"
+#  ansible.builtin.apt_repository:
+#    repo: ppa:neovim-ppa/unstable
+#    state: present
+#  become: true
 
 - name: "Neovim | Install neovim"
   ansible.builtin.apt:
@@ -25,7 +24,6 @@
     update_cache: true
     state: present
   become: true 
-
 
 - name: "Neovim | Config folder"
   ansible.builtin.file:
