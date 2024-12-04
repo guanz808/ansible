@@ -16,6 +16,7 @@
   ansible.builtin.apt_repository:
     repo: ppa:neovim-ppa/unstable
     state: present
+    update_key: yes
   become: true
 
 - name: "Neovim | Install neovim"
