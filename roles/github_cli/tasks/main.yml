@@ -1,30 +1,30 @@
 - name: Add the GitHub CLI Repository and Install GigHub CLI
   block:
-    #- name: Download and set up GitHub CLI GPG key
-    #  ansible.builtin.apt_key:
-    #    url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
-    #    keyring: /usr/share/keyrings/githubcli-archive-keyring.gpg
-    #- name: Add GitHub CLI repository
-    #  ansible.builtin.apt_repository:
-    #    repo: >
-    #      deb 
-    #      #[arch={{ ansible_architecture }} signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] 
-    #      deb [arch=amd64] signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg \
-    #      https://cli.github.com/packages 
-    #      stable 
-    #      main
-    - name: Add GitHub CLI repository
-      apt_repository:
-        repo: 'deb [arch={{ ansible_architecture }} signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main'
-        state: present
-        filename: github-cli
-
-        validate_certs: no
-
-    - name: Import GPG key
-      apt_key:
+    - name: Download and set up GitHub CLI GPG key
+      ansible.builtin.apt_key:
         url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
-        state: present
+        keyring: /usr/share/keyrings/githubcli-archive-keyring.gpg
+    - name: Add GitHub CLI repository
+      ansible.builtin.apt_repository:
+        repo: >
+          deb 
+          #[arch={{ ansible_architecture }} signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] 
+          [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg]
+          https://cli.github.com/packages 
+          stable 
+          main
+#    - name: Add GitHub CLI repository
+#      apt_repository:
+#        repo: 'deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main'
+#        state: present
+#        filename: github-cli.list
+#
+#        validate_certs: no
+#
+#    - name: Import GPG key
+#      apt_key:
+#        url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
+#        state: present
     - name: Update package lists
       apt:
         update_cache: yes    
