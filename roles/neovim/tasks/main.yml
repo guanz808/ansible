@@ -12,6 +12,7 @@
     state: present
   become: true
 
+# Neovim was upgraded so this is not needed
 #- name: "Neovim | {{ ansible_distribution }} | add repo"
 #  ansible.builtin.apt_repository:
 #    repo: ppa:neovim-ppa/unstable
@@ -32,13 +33,6 @@
     mode: "0755"
     path: "/home/{{ host_user }}/.config/nvim"
     state: directory
-
-#- name: "Neovim | Create symlink to role files directory"
-#  ansible.builtin.file:
-#    src: "{{ role_path }}/files"
-#    dest: "/home/{{ host_user }}/.config/nvim"
-#    state: link
-#    force: true  
 
 - name: Copy configuration files | /home/{{ host_user }}/.config/nvim/  | 
   ansible.builtin.copy:
