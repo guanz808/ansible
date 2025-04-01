@@ -1,0 +1,31 @@
+---
+- name: "PowerShell | Install dependencies"
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: present
+  become: true
+  loop:
+    - wget
+    - apt-transport-https
+    - software-properties-common
+
+- name: "PowerShell | Download the PowerShell package file"
+  get_url:
+    url: https://github.com/PowerShell/PowerShell/releases/download/v7.5.0/powershell_7.5.0-1.deb_amd64.deb
+    dest: "/home/{{ host_user }}/powershell.deb_amd64.deb"
+  become: true
+
+- name: "PowerShell | Install PowerShell Package"
+  apt:
+    deb: "/home/{{ host_user }}/powershell.deb_amd64.deb"
+    state: present
+  become: true
+
+- name: "PowerShell | Fix broken dependencies"
+  apt:
+    fix_broken: yes
+
+- name: "PowerShell | Remove downloaded package file"
+  file:
+    path: "/home/{{ host_user }}/powershell.deb_amd64.deb"
+    state: absent
