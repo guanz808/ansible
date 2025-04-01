@@ -6,8 +6,6 @@
   become: true
   loop:
     - wget
-    - apt-transport-https
-    - software-properties-common
 
 - name: "PowerShell | Download the PowerShell package file"
   get_url:
@@ -23,6 +21,7 @@
 
 - name: "PowerShell | Fix broken dependencies"
   command: apt-get install -f
+  become: true
 
 - name: "PowerShell | Remove downloaded package file"
   file:
