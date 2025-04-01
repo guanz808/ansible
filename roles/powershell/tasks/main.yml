@@ -22,8 +22,7 @@
   become: true
 
 - name: "PowerShell | Fix broken dependencies"
-  apt:
-    fix_broken: yes
+  command: apt-get install -f
 
 - name: "PowerShell | Remove downloaded package file"
   file:
