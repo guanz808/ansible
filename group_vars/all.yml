@@ -13,10 +13,10 @@ default_roles:
     - starship
     - azure_cli
     - github_cli
+    - aws_cli    
     - kubectl
     - terraform
     - powershell
-    - aws_cli
 
 host_user: "{{ lookup('pipe', 'whoami') }}"
 
