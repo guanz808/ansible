@@ -26,7 +26,8 @@ if [ -f /.dockerenv ]; then
     vim \
     adduser \
     sudo \
-    locales
+    locales \
+    unzip
   
   clear
   echo "Changing root password (enter twice)"

@@ -1,13 +1,4 @@
 ---
-- name: Update apt and install required system packages
-  apt:
-    name:
-      - zip
-    state: latest
-    update_cache: true
-  become: true  
-  when: ansible_distribution in ["Debian", "Ubuntu"]  
-
 - name: Download AWS CLI v2 installer
       ansible.builtin.get_url:
         url: "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
