@@ -16,6 +16,7 @@ default_roles:
     - kubectl
     - terraform
     - powershell
+    - aws_cli
 
 host_user: "{{ lookup('pipe', 'whoami') }}"
 

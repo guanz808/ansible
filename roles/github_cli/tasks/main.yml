@@ -1,4 +1,4 @@
-- name: Add the GitHub CLI Repository and Install GigHub CLI
+- name: Add the GitHub CLI Repository and Install GitHub CLI
   block:
     - name: Download and set up GitHub CLI GPG key 
       ansible.builtin.apt_key:
