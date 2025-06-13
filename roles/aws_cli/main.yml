@@ -21,10 +21,10 @@
   # You can add --install-dir and --bin-dir if you want custom paths:
   # ansible.builtin.command: "/tmp/aws/install --install-dir /opt/aws-cli --bin-dir /usr/local/bin"
 
-- name: Clean up downloaded AWS CLI files
-  ansible.builtin.file:
-    path: "{{ item }}"
-    state: absent # Removes the file or directory
-  loop:
-    - "/tmp/awscliv2.zip"
-    - "/tmp/aws"  
+#- name: Clean up downloaded AWS CLI files
+#  ansible.builtin.file:
+#    path: "{{ item }}"
+#    state: absent # Removes the file or directory
+#  loop:
+#    - "/tmp/awscliv2.zip"
+#    - "/tmp/aws"  
