@@ -8,27 +8,27 @@
       # Use `creates` to make this task idempotent if the file exists, though unarchive will handle the overwrite
       # creates: "/tmp/awscliv2.zip" # Not needed as unarchive handles idempotent updates
 
-#- name: Unzip AWS CLI v2 installer
-#  ansible.builtin.unarchive:
-#    src: "/tmp/awscliv2.zip"
-#    dest: "/tmp/" # Unzips into /tmp/aws
-#    remote_src: yes # Indicates that the source file is on the remote host
-#    creates: "/tmp/aws/install" # Make this task idempotent, only run if install script isn't there
-#  become: true    
-#
-#- name: Run the AWS CLI v2 install script
-#  ansible.builtin.command: "/tmp/aws/install"
-#  args:
-#    creates: "/usr/local/bin/aws" # Make this task idempotent, only run if aws command isn't in /usr/local/bin
-#  become: true    
-#  # You can add --install-dir and --bin-dir if you want custom paths:
-#  # ansible.builtin.command: "/tmp/aws/install --install-dir /opt/aws-cli --bin-dir /usr/local/bin"
+- name: Unzip AWS CLI v2 installer
+  ansible.builtin.unarchive:
+    src: "/tmp/awscliv2.zip"
+    dest: "/tmp/" # Unzips into /tmp/aws
+    remote_src: yes # Indicates that the source file is on the remote host
+    creates: "/tmp/aws/install" # Make this task idempotent, only run if install script isn't there
+  become: true    
 
-#- name: Clean up downloaded AWS CLI files
-#  ansible.builtin.file:
-#    path: "{{ item }}"
-#    state: absent # Removes the file or directory
-#  loop:
-#    - "/tmp/awscliv2.zip"
-#    - "/tmp/aws"  
-#  become: true
+- name: Run the AWS CLI v2 install script
+  ansible.builtin.command: "/tmp/aws/install"
+  args:
+    creates: "/usr/local/bin/aws" # Make this task idempotent, only run if aws command isn't in /usr/local/bin
+  become: true    
+  # You can add --install-dir and --bin-dir if you want custom paths:
+  # ansible.builtin.command: "/tmp/aws/install --install-dir /opt/aws-cli --bin-dir /usr/local/bin"
+
+- name: Clean up downloaded AWS CLI files
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: absent # Removes the file or directory
+  loop:
+    - "/tmp/awscliv2.zip"
+    - "/tmp/aws"  
+  become: true
